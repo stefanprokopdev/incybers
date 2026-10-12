@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--ifm-badge-border-radius);
+  font-size: 0.72rem;
+  font-weight: var(--ifm-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--ifm-color-success-darker);
+  color: var(--brand-white);
+  border: var(--ifm-global-border-width) solid var(--ifm-color-success-darker);
+}
+
+.icon {
+  font-size: 0.85rem;
+  color: var(--brand-white);
+}
+
+.large {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+}

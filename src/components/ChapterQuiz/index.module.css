@@ -1,0 +1,122 @@
+.wrapper {
+  padding: 0;
+  background: transparent;
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+.hint {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.question {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.questionLocked {
+  opacity: 0.6;
+}
+
+.question:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.prompt {
+  margin: 0 0 0.65rem;
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.answerLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: var(--ifm-font-weight-normal);
+}
+
+.answerLabel {
+  padding: 0.4rem 0.6rem;
+  border: var(--ifm-global-border-width) solid transparent;
+  border-radius: var(--ifm-global-radius);
+}
+
+.answerText {
+  flex: 1;
+}
+
+.answerCorrect {
+  background: var(--ifm-color-success-contrast-background);
+  border-color: var(--ifm-color-success);
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.answerWrong {
+  background: var(--ifm-color-danger-contrast-background);
+  border-color: var(--ifm-color-danger);
+  color: var(--ifm-color-danger-contrast-foreground);
+}
+
+.answerVerdict {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: var(--ifm-font-weight-bold);
+  white-space: nowrap;
+}
+
+.answerLabel input {
+  margin-top: 0.2rem;
+  accent-color: var(--ifm-color-primary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.result {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.95rem;
+}
+
+.resultSuccess {
+  background: var(--ifm-color-success-contrast-background);
+  border: var(--ifm-global-border-width) solid var(--ifm-color-success-lightest);
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.resultFail {
+  background: var(--ifm-color-danger-contrast-background);
+  border: var(--ifm-global-border-width) solid var(--ifm-color-danger-lightest);
+  color: var(--ifm-color-danger-contrast-foreground);
+}
+
+.passedBadge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.75rem;
+  font-weight: var(--ifm-font-weight-bold);
+  text-transform: uppercase;
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-foreground);
+  border-radius: var(--ifm-badge-border-radius);
+}

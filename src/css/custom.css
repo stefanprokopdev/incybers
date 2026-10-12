@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+/*
+ * Design vychází z výchozího vzhledu Infimy (CSS framework Docusaurusu).
+ * Zde se pouze nastavují proměnné: brandové barvy a jejich mapování na Infimu.
+ * Komponenty mají používat proměnné `--ifm-*` (případně `--brand-*`), ne pevné barvy.
+ */
+
+:root {
+  /* Primární brandové barvy */
+  --brand-black: #000;
+  --brand-white: #fff;
+  --brand-yellow: #ffba00;
+  --brand-gray: #e6e6e6;
+
+  /* Primary = brandová žlutá */
+  --ifm-color-primary: var(--brand-yellow);
+  --ifm-color-primary-dark: #e6a700;
+  --ifm-color-primary-darker: #d99e00;
+  --ifm-color-primary-darkest: #b28200;
+  --ifm-color-primary-light: #ffc426;
+  --ifm-color-primary-lighter: #ffcf4c;
+  --ifm-color-primary-lightest: #ffe399;
+  --ifm-color-primary-contrast-background: #fff5d9;
+  --ifm-color-primary-contrast-foreground: var(--brand-black);
+
+  /* Secondary = brandová šedá */
+  --ifm-color-secondary: var(--brand-gray);
+  --ifm-color-secondary-dark: #cfcfcf;
+  --ifm-color-secondary-darker: #c4c4c4;
+  --ifm-color-secondary-darkest: #a1a1a1;
+  --ifm-color-secondary-light: #eaeaea;
+  --ifm-color-secondary-lighter: #eee;
+  --ifm-color-secondary-lightest: #f5f5f5;
+  --ifm-color-secondary-contrast-background: #f5f5f5;
+  --ifm-color-secondary-contrast-foreground: var(--brand-black);
+
+  /* Stupnice šedé: bílá -> brandová šedá -> černá */
+  --ifm-color-emphasis-0: var(--brand-white);
+  --ifm-color-emphasis-100: #f5f5f5;
+  --ifm-color-emphasis-200: var(--brand-gray);
+  --ifm-color-emphasis-300: #cfcfcf;
+  --ifm-color-emphasis-400: #b3b3b3;
+  --ifm-color-emphasis-500: #808080;
+  --ifm-color-emphasis-600: #666;
+  --ifm-color-emphasis-700: #4d4d4d;
+  --ifm-color-emphasis-800: #333;
+  --ifm-color-emphasis-900: #1a1a1a;
+  --ifm-color-emphasis-1000: var(--brand-black);
+
+  /* Text, pozadí, odkazy, nadpisy */
+  --ifm-font-color-base: var(--brand-black);
+  --ifm-font-color-base-inverse: var(--brand-white);
+  --ifm-background-color: var(--brand-white);
+  --ifm-background-surface-color: var(--brand-white);
+  --ifm-heading-color: var(--brand-black);
+  --ifm-link-color: var(--brand-black);
+  --ifm-link-hover-color: var(--ifm-color-primary-darkest);
+  --ifm-menu-color: var(--brand-black);
+  --ifm-menu-color-active: var(--brand-black);
+  --ifm-breadcrumb-color-active: var(--brand-black);
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary-darkest);
+  --ifm-footer-background-color: var(--brand-black);
+  --ifm-footer-title-color: var(--brand-white);
+  --ifm-footer-color: var(--brand-gray);
+  --ifm-footer-link-color: var(--brand-gray);
+  --ifm-footer-link-hover-color: var(--brand-yellow);
+
+  /* Odznaky: žlutý podklad, černý text */
+  --ifm-badge-background-color: var(--ifm-color-primary);
+  --ifm-badge-border-color: var(--ifm-color-primary);
+  --ifm-badge-color: var(--brand-black);
+
+  /* Jediný zásah do typografie: brandové písmo */
+  --ifm-font-family-base:
+    "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Přihlašovací stránka: navbar v brandové šedé (navbar je mimo wrapper stránky, proto :has na body) */
+body:has(.layout-login) {
+  --ifm-navbar-background-color: var(--brand-gray);
+}
+
+/* Černý text na žlutém primárním tlačítku (výchozí Infima používá bílý text) */
+.button--primary:not(.button--outline) {
+  --ifm-button-color: var(--brand-black);
+}
+
+.button--primary.button--outline {
+  --ifm-button-color: var(--brand-black);
+}
+
+.button--primary.button--outline:hover {
+  --ifm-button-color: var(--brand-black);
+}
+
+/* DocItem vykresluje breadcrumbs ručně nad obsahem – výchozí zde skrýt, aby nebyly dvakrát */
+.doc-item-wrapper .theme-doc-breadcrumbs,
+.doc-item-wrapper nav[aria-label="breadcrumbs"] {
+  display: none !important;
+}
+
+@media print {
+  .navbar,
+  .footer,
+  button,
+  .alert {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+}

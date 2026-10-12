@@ -1,0 +1,84 @@
+import clsx from "clsx";
+import React, { JSX } from "react";
+import styles from "./index.module.css";
+
+export interface HeroImageWithFrameProps {
+  imageSrc: string;
+  imageAlt?: string;
+  withFrame?: boolean;
+}
+
+export default function HeroImageWithFrame({
+  imageSrc,
+  imageAlt = "",
+  withFrame = false,
+}: HeroImageWithFrameProps): JSX.Element {
+  return (
+    <div className={styles.heroImageContainer}>
+      {withFrame && (
+        <svg
+          className={styles.frameSvg}
+          viewBox="0 0 800 600"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <style>
+              {`
+                .tech-frame {
+                  fill: url(#frameGradient);
+                  fill-opacity: 0.75;
+                  stroke: none;
+                }
+                .tech-line {
+                  fill: none;
+                  stroke: url(#frameGradient);
+                  stroke-width: 2.5;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-opacity: 0.75;
+                }
+                .tech-thin {
+                  fill: none;
+                  stroke: url(#frameGradient);
+                  stroke-width: 1.5;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-opacity: 0.65;
+                }
+              `}
+            </style>
+            <linearGradient id="frameGradient" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#ffe066" />
+              <stop offset="100%" stopColor="#ffba00" />
+            </linearGradient>
+          </defs>
+          <path className="tech-frame" d="M 40,20 L 70,20 L 50,40 L 20,40 Z" />
+          <path className="tech-frame" d="M 80,20 L 110,20 L 90,40 L 60,40 Z" />
+          <path className="tech-frame" d="M 120,20 L 150,20 L 130,40 L 100,40 Z" />
+          <path className="tech-frame" d="M 160,20 L 190,20 L 170,40 L 140,40 Z" />
+          <path className="tech-frame" d="M 200,20 L 230,20 L 210,40 L 180,40 Z" />
+          <path className="tech-frame" d="M 760,580 L 730,580 L 750,560 L 780,560 Z" />
+          <path className="tech-frame" d="M 720,580 L 690,580 L 710,560 L 740,560 Z" />
+          <path className="tech-frame" d="M 680,580 L 650,580 L 670,560 L 700,560 Z" />
+          <path className="tech-frame" d="M 640,580 L 610,580 L 630,560 L 660,560 Z" />
+          <path className="tech-frame" d="M 600,580 L 570,580 L 590,560 L 620,560 Z" />
+          <path className="tech-line" d="M 240,25 L 750,25 L 775,50" />
+          <path className="tech-line" d="M 780,60 L 780,550 L 775,555" />
+          <path className="tech-line" d="M 560,575 L 50,575 L 25,550" />
+          <path className="tech-line" d="M 20,540 L 20,50 L 25,45" />
+          <path
+            className="tech-thin"
+            d="M 40,55 L 745,55 L 765,75 L 765,545 L 745,565 L 55,565 L 35,545 L 35,75 L 40,55 Z"
+          />
+          <path className="tech-frame" d="M 15,530 L 15,560 L 45,590 L 45,585 L 18,558 L 18,530 Z" />
+          <path className="tech-line" d="M 770,20 L 790,40" style={{ strokeWidth: "1" }} />
+        </svg>
+      )}
+      <div className={clsx(styles.heroImage, withFrame && styles.heroImageWithFrame)}>
+        <img src={imageSrc} alt={imageAlt} />
+      </div>
+    </div>
+  );
+}

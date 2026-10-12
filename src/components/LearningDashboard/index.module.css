@@ -1,0 +1,59 @@
+.hero {
+  margin-bottom: 2rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--ifm-card-background-color);
+  border: var(--ifm-global-border-width) solid var(--ifm-color-emphasis-200);
+  border-top: 4px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 40rem;
+  line-height: 1.6;
+}
+
+.loading {
+  padding: 1rem 1.25rem;
+  background: var(--ifm-card-background-color);
+  border: var(--ifm-global-border-width) solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+}
+
+.empty {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border: var(--ifm-global-border-width) dashed var(--ifm-color-emphasis-400);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+}
+
+.emptyTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.emptyHint {
+  margin: 0 auto;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 28rem;
+  line-height: 1.55;
+}
+
+/*
+ * Karty kurzů v mřížce: na široké obrazovce (obsah max. 1080 px) se vedle sebe vejdou 3,
+ * na užších 2 nebo 1. `auto-fill` zajistí, že osamocená karta nezabere celý řádek.
+ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 1.5rem;
+}

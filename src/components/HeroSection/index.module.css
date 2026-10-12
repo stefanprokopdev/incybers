@@ -1,0 +1,585 @@
+/* Hero banner – white/gray base with transparent orange stripes and shapes */
+.heroBannerModern {
+  padding: 3.25rem 0 3.75rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  color: #000000;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.04),
+    0 -1px 6px rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.heroBannerModern.heroBannerModernHome {
+  margin-top: calc(-1 * var(--ifm-navbar-height, 4.25rem));
+  padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 3.75rem);
+  padding-bottom: 6rem;
+}
+
+.heroBannerModern.heroBannerModernCompact {
+  min-height: 320px;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroBannerModern.heroBannerModernCompact.heroBannerModernHome {
+  padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 1.5rem);
+  padding-bottom: 2.5rem;
+}
+
+@media screen and (min-width: 997px) {
+  .heroBannerModern.heroBannerModernCompact {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .heroBannerModern.heroBannerModernCompact.heroBannerModernHome {
+    padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 2.5rem);
+    padding-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .heroBannerModern.heroBannerModernHome :global(.hero__title) {
+    padding-top: 1.5rem;
+  }
+
+  .heroBannerModern.heroBannerModernHome
+    :global(.row)
+    :global(.col):first-child:not([data-has-subtitle])
+    :global(.hero__title) {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  .heroBannerModern {
+    padding-top: 4.75rem;
+  }
+
+  .heroBannerModern.heroBannerModernHome {
+    padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 7rem);
+    padding-bottom: 5rem;
+  }
+}
+
+.heroSvgBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroSvgBackgroundSvg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroSvgAccentTop {
+  animation: heroSvgAccentFloat 42s ease-in-out infinite;
+  animation-delay: var(--hero-delay-accent-top, 0);
+  transform-origin: 5% 15%;
+}
+
+.heroSvgAccentBottom {
+  animation: heroSvgAccentFloat 50s ease-in-out infinite reverse;
+  animation-delay: var(--hero-delay-accent-bottom, 0);
+  transform-origin: 95% 85%;
+}
+
+.heroSvgHorizonGlow {
+  opacity: 0.85;
+  animation: heroSvgGlowPulse 4s ease-in-out infinite;
+  animation-delay: var(--hero-delay-horizon-glow, 0);
+}
+
+.heroSvgHorizonLine {
+  animation: heroSvgHorizonShift 5s ease-in-out infinite;
+  animation-delay: var(--hero-delay-horizon-line, 0);
+}
+
+.heroSvgHorizonArc2 {
+  animation: heroSvgGlowPulse 4.5s ease-in-out infinite;
+  animation-delay: var(--hero-delay-horizon-arc2, 0);
+}
+
+@keyframes heroSvgAccentFloat {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.05) translate(12%, 6%);
+    opacity: 0.9;
+  }
+  40% {
+    transform: scale(0.97) translate(-8%, 8%);
+    opacity: 0.93;
+  }
+  60% {
+    transform: scale(1.03) translate(-4%, -6%);
+    opacity: 0.91;
+  }
+  80% {
+    transform: scale(0.99) translate(6%, -3%);
+    opacity: 0.94;
+  }
+}
+
+.heroTopContent {
+  margin-top: -3rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.heroBannerModern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      ellipse 120% 70% at 5% 15%,
+      rgba(255, 186, 0, 0.12) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 100% 60% at 95% 85%,
+      rgba(255, 186, 0, 0.1) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle 50% at 50% 50%,
+      rgba(255, 186, 0, 0.06) 0%,
+      transparent 65%
+    );
+  pointer-events: none;
+  z-index: 1;
+  animation: gradientShift 20s ease-in-out infinite;
+  opacity: 1;
+}
+
+.heroBannerModern.heroBannerModernHome::before {
+  background:
+    radial-gradient(
+      ellipse 120% 70% at 5% 15%,
+      rgba(255, 186, 0, 0.14) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 100% 60% at 95% 85%,
+      rgba(255, 186, 0, 0.12) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle 55% at 50% 50%,
+      rgba(255, 186, 0, 0.08) 0%,
+      transparent 70%
+    );
+  opacity: 1;
+}
+
+.heroBannerModern::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent 88%,
+      rgba(0, 0, 0, 0.02) 96%,
+      rgba(0, 0, 0, 0.04) 100%
+    ),
+    repeating-linear-gradient(
+      105deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 186, 0, 0.06) 40px,
+      rgba(255, 186, 0, 0.06) 42px
+    ),
+    repeating-linear-gradient(
+      -15deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 186, 0, 0.05) 60px,
+      rgba(255, 186, 0, 0.05) 62px
+    ),
+    radial-gradient(
+      circle 0.5px at 30px 30px,
+      rgba(255, 186, 0, 0.1) 0%,
+      transparent 0%
+    ),
+    radial-gradient(
+      circle 0.5px at 90px 90px,
+      rgba(255, 186, 0, 0.08) 0%,
+      transparent 0%
+    ),
+    radial-gradient(
+      circle 0.5px at 150px 150px,
+      rgba(255, 186, 0, 0.06) 0%,
+      transparent 0%
+    );
+  background-size:
+    100% 100%,
+    120px 120px,
+    180px 180px,
+    120px 120px,
+    180px 180px,
+    240px 240px;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    60px 60px,
+    120px 120px;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat;
+  animation: patternMove 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    opacity: 0.95;
+    transform: scale(1.01) translate(2px, -2px);
+  }
+  66% {
+    opacity: 0.92;
+    transform: scale(1.015) translate(-2px, 2px);
+  }
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(20px, 20px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+}
+
+.heroBannerModern :global(.hero__title) {
+  color: #000000 !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1.75rem, 2vw + 1.5rem, 3rem) !important;
+}
+
+.heroBannerModern :global(.hero__subtitle) {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 400;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.backgroundIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotate(15deg);
+  color: rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.heroBannerContainer:hover .backgroundIcon {
+  transform: translate(-10px, -10px) rotate(25deg) scale(1.1);
+  color: rgba(0, 0, 0, 0.12);
+  opacity: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.heroBannerContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.floatingParticle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 186, 0, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 186, 0, 0.7);
+}
+
+.floatingParticle:nth-child(1) {
+  top: 25%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.floatingParticle:nth-child(2) {
+  top: 65%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.floatingParticle:nth-child(3) {
+  top: 75%;
+  left: 25%;
+  animation-delay: 4s;
+}
+
+.floatingParticle:nth-child(4) {
+  top: 35%;
+  left: 75%;
+  animation-delay: 1s;
+}
+
+.floatingParticle:nth-child(5) {
+  top: 55%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-15px) translateX(10px);
+    opacity: 0.45;
+  }
+}
+
+.additionalText {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 400;
+  margin-top: 1.5rem;
+}
+
+.additionalText div {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* Left layout styles */
+.heroBannerModern .heroList {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.heroBannerModern .heroList li {
+  position: relative;
+  padding-left: 1.75rem;
+  padding-bottom: 0.5rem;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+  list-style: none !important;
+  list-style-type: none !important;
+  color: #000000;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.heroBannerModern .heroList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.heroBannerModern .heroList li:hover::before {
+  transform: scale(1.2);
+}
+
+.heroBannerModern .heroList li:hover {
+  color: #000000;
+}
+
+.heroButtons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.heroButtonsLeft {
+  justify-content: flex-start;
+}
+
+.heroBannerModern .heroButtons .button.button--primary,
+.heroBannerModern .heroButtons a.button.button--primary {
+  background: linear-gradient(135deg, #ffe066 0%, #ffba00 100%) !important;
+  background-image: linear-gradient(
+    135deg,
+    #ffe066 0%,
+    #ffba00 100%
+  ) !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  filter: none;
+}
+
+.heroBannerModern .heroButtons .button.button--primary:hover,
+.heroBannerModern .heroButtons a.button.button--primary:hover,
+.heroBannerModern .heroButtons .button.button--primary:focus,
+.heroBannerModern .heroButtons a.button.button--primary:focus {
+  background: linear-gradient(135deg, #ffe066 0%, #ffba00 100%) !important;
+  background-image: linear-gradient(
+    135deg,
+    #ffe066 0%,
+    #ffba00 100%
+  ) !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  filter: brightness(1.04);
+}
+
+.heroBannerModern .heroButtons .button--outline,
+.heroBannerModern .heroButtons a.button--outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+}
+
+.heroBannerModern .heroButtons .button--outline:hover,
+.heroBannerModern .heroButtons a.button--outline:hover,
+.heroBannerModern .heroButtons .button--outline:focus,
+.heroBannerModern .heroButtons a.button--outline:focus {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: #ffffff !important;
+}
+
+.heroButtons .button,
+.heroButtons a {
+  font-size: 1rem;
+  padding: 0.65rem 1.6rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .heroButtons .button,
+  .heroButtons a {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroButtons .button,
+  .heroButtons a {
+    font-size: 0.9rem;
+    padding: 0.55rem 1.3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroButtons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .heroButtons .button,
+  .heroButtons a {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-right: 0 !important;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.3rem;
+  }
+}
+
+.terminalColumn {
+  display: block;
+  text-align: left;
+}
+
+@media screen and (max-width: 996px) {
+  .terminalColumn {
+    display: none !important;
+  }
+
+  .heroBannerModern .row .col:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .heroBannerModern {
+    padding-top: 3.5rem;
+    padding-bottom: 3.75rem;
+    min-height: 500px;
+  }
+
+  .heroBannerModern.heroBannerModernHome {
+    padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 1.5rem);
+  }
+
+  .backgroundIcon {
+    top: 10px;
+    right: 10px;
+  }
+
+  .heroBannerModern .row .col:last-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .heroBannerModern.heroBannerModernCompact {
+    min-height: 260px;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .heroBannerModern.heroBannerModernCompact.heroBannerModernHome {
+    padding-top: calc(var(--ifm-navbar-height, 4.25rem) + 1rem);
+    padding-bottom: 2rem;
+  }
+}

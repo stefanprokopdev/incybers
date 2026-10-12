@@ -1,0 +1,31 @@
+.boxRounded {
+  border: 10px solid var(--ifm-footer-background-color);
+  padding: 25px;
+  border-radius: 0;
+}
+
+.bgWhite {
+  background: white;
+}
+
+.textHighlighted {
+  color: var(--ifm-link-color);
+  font-weight: bold;
+}
+
+.imageCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--ifm-spacing-vertical);
+}
+
+.imageWrapper img {
+  display: block;
+}

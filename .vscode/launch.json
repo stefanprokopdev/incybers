@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start Docusaurus Dev Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@docusaurus/core/bin/docusaurus.mjs",
+      "args": ["start"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "presentation": {
+        "group": "Docusaurus",
+        "order": 1
+      }
+    },
+    {
+      "name": "Build Docusaurus",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@docusaurus/core/bin/docusaurus.mjs",
+      "args": ["build"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "presentation": {
+        "group": "Docusaurus",
+        "order": 2
+      }
+    }
+  ]
+}

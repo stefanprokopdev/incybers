@@ -1,0 +1,68 @@
+.section {
+  margin-bottom: 0;
+}
+
+.blockTitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.textContent {
+  line-height: 1.65;
+}
+
+.textContent p:last-child {
+  margin-bottom: 0;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--brand-black);
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.videoDescription {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.navButton {
+  padding: 0.4rem 0.8rem;
+  border: var(--ifm-global-border-width) solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: var(--ifm-global-radius);
+}
+
+.navButtonActive {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-foreground);
+  font-weight: var(--ifm-font-weight-semibold);
+}

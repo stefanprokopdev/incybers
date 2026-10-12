@@ -1,0 +1,12 @@
+.thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  background: var(--brand-black);
+}
+
+.banner {
+  max-height: 18rem;
+}

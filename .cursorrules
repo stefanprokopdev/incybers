@@ -1,0 +1,200 @@
+# Outcybers - Cursor Rules
+
+## Project Overview
+
+This is a Docusaurus-based website for cybersecurity education and services, focusing on secure coding practices and application security. The site is built with React, TypeScript, and Docusaurus 3.1.1.
+
+## Technology Stack
+
+- **Framework**: Docusaurus 3.1.1
+- **Language**: TypeScript 5.3.3
+- **Runtime**: Node.js >=18.12
+- **Package Manager**: Yarn (preferred over npm)
+- **Styling**: CSS Modules, Infima CSS framework
+- **Icons**: FontAwesome 6.7.2
+- **Search**: Algolia DocSearch
+- **Analytics**: Google Tag Manager
+- **Deployment**: Firebase Hosting
+
+## Code Standards & Conventions
+
+### TypeScript & React
+
+- Use TypeScript for all components and pages
+- Define interfaces for component props and data structures
+- Use explicit JSX.Element return types for page components
+- Prefer functional components with hooks over class components
+- Use proper TypeScript annotations and type checking
+- Import React explicitly in components that use JSX
+
+### Component Structure
+
+- Components should be in `/src/components/[ComponentName]/`
+- Use `index.tsx` as the main component file
+- Create separate `index.module.css` for component-specific styles
+- Export components as default exports for pages, named exports for reusable components
+- Use PascalCase for component names and file names
+
+### Styling Guidelines
+
+- Use CSS Modules for component-specific styles
+- Leverage Infima CSS framework classes for layout and spacing
+- Use CSS custom properties (variables) defined in `custom.css`
+- Follow the established color scheme:
+  - Primary: #ffba00 (yellow)
+  - Primary dark: #e6a700
+  - Text: #000 (black)
+- Use Montserrat font family for text
+- Implement responsive design with mobile-first approach
+
+### File Organization
+
+- Pages go in `/src/pages/`
+- Components go in `/src/components/`
+- Global styles in `/src/css/custom.css`
+- Content directories: `/cheat-sheety/`, `/checklisty/`, `/clanky/`, `/kurzy/`, `/zranitelnosti/`, etc.
+- Use `.tsx` for React components, `.mdx` for content pages
+
+### Docusaurus Configuration
+
+- Multiple content instances configured for different sections
+- Czech language (cs) as default locale
+- Algolia search integration
+- Google Tag Manager analytics
+- Custom navigation and footer configuration
+
+## Development Guidelines
+
+### Git & Commits
+
+- Use Conventional Commits format
+- Create feature branches with `feature/[alias-short-name]` pattern
+- Prefer git rebase onto main instead of merge strategy
+- Automatically commit changes when making improvements
+- Amend to previous commit if it's a fix and the previous commit hasn't been pushed
+
+### Code Quality
+
+- Automatically add imports and remove unused ones
+- Avoid syntax errors and ensure code compiles
+- Write tests when fixing bugs to prevent regression
+- Use English naming for variables, components, functions, and other code parts
+- Create and use reusable components for clean composition
+
+### Package Management
+
+- Use Yarn as the preferred package manager (not npm)
+- Run `yarn install` instead of `npm install`
+- Use `yarn add` and `yarn remove` for dependency management
+- Use `yarn build`, `yarn start`, etc. for scripts
+
+### Content & SEO
+
+- Use Czech language for all content
+- Implement proper meta descriptions and titles
+- Use semantic HTML structure
+- Ensure proper heading hierarchy (h1, h2, h3, etc.)
+- Optimize images and use appropriate formats
+
+### Security & Privacy
+
+- Avoid mentioning GDPR-sensitive information in tests, commit names, or code comments
+- Anonymize sensitive data when needed
+- Use temporary redirect HTTP codes instead of permanent ones for debugging
+- When moving routes, create redirects from previous addresses for SEO
+
+### UI/UX Standards
+
+- Maintain high-quality UI/UX
+- Follow the design used in the rest of the application
+- Ensure visual consistency across components
+- Use proper spacing and typography
+- Implement accessible design patterns
+
+### Monetary Values
+
+- Use non-breaking spaces between currency and value
+- Use non-breaking spaces within numbers when separating digits with spaces
+- Format: "25 000 Kč" not "25000 Kč"
+
+## Docusaurus-Specific Rules
+
+### Content Management
+
+- Use frontmatter in MDX files for metadata
+- Leverage Docusaurus plugins for content organization
+- Use sidebars for navigation structure
+- Implement proper routing with `routeBasePath`
+
+### Component Integration
+
+- Use Docusaurus Layout component for page structure
+- Leverage Docusaurus Link component for internal navigation
+- Use theme components when available
+- Implement proper SEO with title and description props
+
+### Performance
+
+- Optimize images and assets
+- Use proper lazy loading for components
+- Minimize bundle size
+- Implement proper caching strategies
+
+## Common Patterns
+
+### Component Props Interface
+
+```typescript
+interface ComponentProps {
+  bgLight?: boolean;
+  // other props
+}
+```
+
+### Page Component Structure
+
+```typescript
+import React, { JSX } from 'react';
+import Layout from '@theme/Layout';
+
+export default function PageName(): JSX.Element {
+  return (
+    <Layout title="Page Title" description="Page description">
+      <main>
+        {/* content */}
+      </main>
+    </Layout>
+  );
+}
+```
+
+### CSS Module Usage
+
+```typescript
+import styles from "./index.module.css";
+import clsx from "clsx";
+
+// Usage: clsx([styles.className, conditionalClass])
+```
+
+## Testing & Quality Assurance
+
+- Write tests for bug fixes to prevent regression
+- Ensure components render without errors
+- Test responsive design on different screen sizes
+- Validate accessibility standards
+- Check for proper TypeScript compilation
+
+## Deployment
+
+- Use Firebase Hosting for deployment
+- Ensure proper build process with `yarn build`
+- Test deployment in staging environment
+- Monitor performance and errors in production
+
+## Documentation
+
+- Do not proactively create documentation \*.md files unless requested
+- Focus on code comments for complex logic
+- Use TypeScript interfaces as documentation for data structures
+- Maintain clear component and function naming for self-documenting code

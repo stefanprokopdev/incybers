@@ -1,0 +1,9 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  padding: 2rem 1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1rem;
+}

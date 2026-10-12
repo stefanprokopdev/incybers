@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isVerifiedUser() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isVerifiedUser() && request.auth.uid == userId;
+    }
+
+    function rolesNotEscalated() {
+      return !('roles' in request.resource.data)
+        || !('roles' in resource.data)
+        || request.resource.data.roles == resource.data.roles;
+    }
+
+    match /learningUsers/{userId} {
+      allow read: if isOwner(userId);
+
+      // Klient smí vytvořit profil bez role; role nastavuje pouze administrátor (Firebase Console / Admin SDK).
+      allow create: if isOwner(userId) && !('roles' in request.resource.data);
+
+      allow update: if isOwner(userId) && rolesNotEscalated();
+
+      allow delete: if false;
+
+      match /enrollments/{courseId} {
+        allow read: if isOwner(userId);
+        allow create, update: if isOwner(userId)
+          && request.resource.data.courseId == courseId;
+        allow delete: if isOwner(userId);
+      }
+
+      match /progress/{courseId} {
+        allow read: if isOwner(userId);
+        allow create, update: if isOwner(userId)
+          && request.resource.data.courseId == courseId;
+        allow delete: if isOwner(userId);
+      }
+    }
+  }
+}

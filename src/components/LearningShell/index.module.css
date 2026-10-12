@@ -1,0 +1,54 @@
+.shell {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* Navbar je skrytý – sidebar a výška shellu s ním nesmí počítat. */
+.shellNoNavbar {
+  --ifm-navbar-height: 0px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.innerWide {
+  max-width: 1080px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  font-weight: var(--ifm-font-weight-semibold);
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+@media (min-width: 997px) {
+  .contentCollapsed {
+    padding-left: 7.5rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .content {
+    padding-top: 4.25rem;
+  }
+}

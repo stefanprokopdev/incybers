@@ -1,0 +1,129 @@
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: var(--ifm-global-border-width) solid var(--ifm-color-emphasis-200);
+  border-top: 4px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  overflow: hidden;
+  transition: box-shadow var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
+}
+
+.card:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.cardCompleted {
+  border-color: var(--ifm-color-success);
+  border-top-width: 8px;
+  background: var(--ifm-color-success-contrast-background);
+  box-shadow:
+    0 0 0 2px var(--ifm-color-success-lightest),
+    var(--ifm-global-shadow-md);
+}
+
+.cardCompleted:hover {
+  box-shadow:
+    0 0 0 2px var(--ifm-color-success-light),
+    var(--ifm-global-shadow-tl);
+}
+
+.cardCompleted .title {
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.cardCompleted .progressBar {
+  background: var(--ifm-color-success-lightest);
+}
+
+.cardCompleted .progressFill {
+  background: var(--ifm-color-success);
+}
+
+.cardCompleted .progressLabel {
+  color: var(--ifm-color-success-contrast-foreground);
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.body {
+  flex: 1;
+  padding: 1.35rem 1.35rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.description {
+  margin: 0 0 1rem;
+  flex: 1;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: var(--ifm-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: var(--ifm-badge-border-radius);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.badgeNotStarted {
+  background: var(--ifm-color-secondary);
+  color: var(--ifm-color-secondary-contrast-foreground);
+}
+
+.badgeInProgress {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-foreground);
+}
+
+.badgeCompleted {
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.progressBar {
+  height: 8px;
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-color-emphasis-200);
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+  transition: width var(--ifm-transition-slow)
+    var(--ifm-transition-timing-default);
+}
+
+.progressLabel {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.footer {
+  padding: 0 1.35rem 1.35rem;
+}
