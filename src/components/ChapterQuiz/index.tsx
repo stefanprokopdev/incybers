@@ -172,7 +172,13 @@ export default function ChapterQuiz({
             </Button>
           )}
           {(alreadyPassed || locked || lastResult !== null || (chapterProgress?.bestScorePercent ?? 0) > 0) && (
-            <Button type="button" variant="outline" onClick={() => void handleReset()} disabled={submitting}>
+            <Button
+              type="button"
+              variant="outline"
+              className={styles.resetButton}
+              onClick={() => void handleReset()}
+              disabled={submitting}
+            >
               Resetovat kvíz
             </Button>
           )}
