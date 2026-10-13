@@ -122,8 +122,16 @@ export default function ChapterQuiz({
           <fieldset key={question.id} className={clsx(styles.question, locked && !reviewed && styles.questionLocked)}
             disabled={locked}
           >
-            <legend className={styles.prompt}>
-              {index + 1}. {question.prompt}
+            <legend className={styles.legend}>
+              <span className={styles.promptRow}>
+                <span className={styles.questionNumber} aria-hidden="true">
+                  {index + 1}
+                </span>
+                <span className={styles.prompt}>
+                  <span className={styles.srOnly}>Otázka {index + 1}: </span>
+                  {question.prompt}
+                </span>
+              </span>
             </legend>
             <div className={styles.answers}>
               {question.answers.map((answer) => {
