@@ -105,8 +105,8 @@
 }
 
 /*
- * Tisk / PDF: nejdřív kompletní popis kurzu, pod ním certifikát,
- * a až potom gratulace, souhrn a skóre podle kapitol.
+ * Tisk / PDF: popis kurzu, pod ním průměrný výsledek a počet splněných kapitol,
+ * potom certifikát a až nakonec gratulace, vyhodnocení a skóre podle kapitol.
  */
 @media print {
   .printLayout {
@@ -115,7 +115,12 @@
   }
 
   .printDescription {
+    order: -3;
+  }
+
+  .summaryGrid {
     order: -2;
+    break-inside: avoid;
   }
 
   .printCertificate {
@@ -129,10 +134,6 @@
   .evaluation,
   .chapterScores {
     box-shadow: none;
-    break-inside: avoid;
-  }
-
-  .summaryGrid {
     break-inside: avoid;
   }
 }

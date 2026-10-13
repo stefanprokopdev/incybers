@@ -41,32 +41,4 @@
     max-width: none;
     font-size: 0.95rem;
   }
-
-  .heading {
-    margin: 1.1rem 0 0.4rem;
-    font-size: 1.05rem;
-    break-after: avoid;
-  }
-
-  .chapters {
-    margin: 0;
-    padding-left: 1.25rem;
-  }
-
-  .chapter {
-    margin-bottom: 0.5rem;
-    break-inside: avoid;
-  }
-
-  .chapterType {
-    color: var(--ifm-color-emphasis-700);
-    font-size: 0.9rem;
-  }
-
-  .chapterSummary {
-    margin: 0.15rem 0 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--ifm-color-emphasis-800);
-  }
 }
