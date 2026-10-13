@@ -2,7 +2,8 @@ import Link from "@docusaurus/Link";
 import clsx from "clsx";
 import React, { JSX } from "react";
 
-export type ButtonVariant = "primary" | "outline";
+/** `subtle` je nenápadné šedé tlačítko pro vedlejší akce (viz `.button--subtle` v `custom.css`). */
+export type ButtonVariant = "primary" | "outline" | "subtle";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps {
@@ -32,7 +33,12 @@ export default function Button({
   target,
   rel,
 }: ButtonProps): JSX.Element {
-  const variantClass = variant === "outline" ? "button--outline" : "button--primary";
+  const variantClass =
+    variant === "subtle"
+      ? clsx("button--outline", "button--subtle")
+      : variant === "outline"
+        ? "button--outline"
+        : "button--primary";
   const sizeClass = size === "lg" ? "button--lg" : size === "sm" ? "button--sm" : undefined;
 
   const classes = clsx("button", variantClass, sizeClass, className);

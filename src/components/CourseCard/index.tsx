@@ -71,7 +71,7 @@ export default function CourseCard({ course, progress }: CourseCardProps): JSX.E
             <Button to={courseCompletionPath(course.id)} className="button--block margin-bottom--sm">
               Vyhodnocení a certifikát
             </Button>
-            <Button to={courseUrl} variant="outline" className="button--block">
+            <Button to={courseUrl} variant="subtle" className="button--block">
               Znovu otevřít kurz
             </Button>
           </>

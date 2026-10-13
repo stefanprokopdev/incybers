@@ -170,29 +170,6 @@
   margin-top: 1.25rem;
 }
 
-/* Nenápadné šedé tlačítko pro reset kvízu (dvojitý selektor přebije styly Infima) */
-.resetButton.resetButton,
-.resetButton.resetButton:visited {
-  --ifm-button-color: var(--ifm-color-emphasis-700);
-  --ifm-button-background-color: transparent;
-  --ifm-button-border-color: var(--ifm-color-emphasis-400);
-  color: var(--ifm-color-emphasis-700);
-  background-color: transparent;
-  border-color: var(--ifm-color-emphasis-400);
-}
-
-.resetButton.resetButton:hover:not(:disabled),
-.resetButton.resetButton:focus-visible {
-  --ifm-button-color: var(--ifm-color-emphasis-900);
-  color: var(--ifm-color-emphasis-900);
-  background-color: var(--ifm-color-emphasis-200);
-  border-color: var(--ifm-color-emphasis-500);
-}
-
-.resetButton.resetButton:disabled {
-  opacity: 0.5;
-}
-
 .result {
   margin: 1rem 0 0;
   padding: 0.75rem 0.9rem;

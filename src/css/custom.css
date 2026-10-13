@@ -100,6 +100,29 @@ body:has(.layout-login) {
   --ifm-button-color: var(--brand-black);
 }
 
+/* Nenápadné šedé tlačítko pro vedlejší akce (dvojitý selektor přebije styly Infima) */
+.button.button--subtle,
+.button.button--subtle:visited {
+  --ifm-button-color: var(--ifm-color-emphasis-700);
+  --ifm-button-background-color: transparent;
+  --ifm-button-border-color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-color-emphasis-700);
+  background-color: transparent;
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+.button.button--subtle:hover:not(:disabled),
+.button.button--subtle:focus-visible {
+  --ifm-button-color: var(--ifm-color-emphasis-900);
+  color: var(--ifm-color-emphasis-900);
+  background-color: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+.button.button--subtle:disabled {
+  opacity: 0.5;
+}
+
 /* DocItem vykresluje breadcrumbs ručně nad obsahem – výchozí zde skrýt, aby nebyly dvakrát */
 .doc-item-wrapper .theme-doc-breadcrumbs,
 .doc-item-wrapper nav[aria-label="breadcrumbs"] {

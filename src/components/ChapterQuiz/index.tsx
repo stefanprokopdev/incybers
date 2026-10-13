@@ -176,8 +176,7 @@ export default function ChapterQuiz({
           {(alreadyPassed || locked || lastResult !== null || (chapterProgress?.bestScorePercent ?? 0) > 0) && (
             <Button
               type="button"
-              variant="outline"
-              className={styles.resetButton}
+              variant="subtle"
               onClick={() => void handleReset()}
               disabled={submitting}
             >
