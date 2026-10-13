@@ -60,8 +60,6 @@ export interface LearningCourseDefinition {
   description: string;
   /** Náhledový obrázek zobrazený v seznamu kurzů a na úvodu detailu kurzu */
   image?: CourseImage;
-  /** Pokyny ke studiu zobrazené na úvodu detailu kurzu */
-  instructions?: string[];
   /** Kód pro přihlášení ke kurzu (heslo) */
   accessCode: string;
   chapters: ChapterDefinition[];

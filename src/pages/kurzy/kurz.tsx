@@ -5,6 +5,7 @@ import CourseCompletionBadge from "@site/src/components/CourseCompletionBadge";
 import CourseThumbnail from "@site/src/components/CourseThumbnail";
 import LearningShell from "@site/src/components/LearningShell";
 import RequireAuth from "@site/src/components/RequireAuth";
+import { COURSE_INSTRUCTIONS } from "@site/src/data/learning/courseInstructions";
 import { getCourseById } from "@site/src/data/learning/courses";
 import { useAuth } from "@site/src/hooks/useAuth";
 import { useCanAccessCourse } from "@site/src/hooks/useCanAccessCourse";
@@ -67,18 +68,16 @@ export default function CourseDetailPage(): JSX.Element {
                 <div className={styles.headerBody}>
                   <h1 className={styles.title}>{course.title}</h1>
                   <p className={styles.description}>{course.description}</p>
-                  {course.instructions && course.instructions.length > 0 && (
-                    <section aria-labelledby="course-instructions-title" className={styles.instructions}>
-                      <h2 id="course-instructions-title" className={styles.instructionsTitle}>
-                        Pokyny ke studiu
-                      </h2>
-                      <ol className={styles.instructionsList}>
-                        {course.instructions.map((instruction) => (
-                          <li key={instruction}>{instruction}</li>
-                        ))}
-                      </ol>
-                    </section>
-                  )}
+                  <section aria-labelledby="course-instructions-title" className={styles.instructions}>
+                    <h2 id="course-instructions-title" className={styles.instructionsTitle}>
+                      Pokyny ke studiu
+                    </h2>
+                    <ol className={styles.instructionsList}>
+                      {COURSE_INSTRUCTIONS.map((instruction) => (
+                        <li key={instruction}>{instruction}</li>
+                      ))}
+                    </ol>
+                  </section>
                 </div>
               </header>
 
