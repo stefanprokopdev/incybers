@@ -101,9 +101,11 @@ export default function ChapterPage(): JSX.Element {
                 {chapter.summary && <p className={styles.summary}>{chapter.summary}</p>}
               </header>
 
-              <section className={styles.panel} aria-label="Výukové materiály">
-                <ChapterMaterials materials={chapter.materials} />
-              </section>
+              {chapter.materials.length > 0 && (
+                <section className={styles.panel} aria-label="Výukové materiály">
+                  <ChapterMaterials materials={chapter.materials} />
+                </section>
+              )}
 
               {hasQuiz && chapter.quiz ? (
                 <section className={styles.panel} aria-label="Kvíz kapitoly">

@@ -7,11 +7,11 @@ interface ChapterMaterialsProps {
   materials: ChapterMaterialBlock[];
 }
 
-export default function ChapterMaterials({ materials }: ChapterMaterialsProps): JSX.Element {
+export default function ChapterMaterials({ materials }: ChapterMaterialsProps): JSX.Element | null {
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (materials.length === 0) {
-    return <p className="margin-bottom--none">V této kapitole zatím nejsou výukové materiály.</p>;
+    return null;
   }
 
   const safeIndex = Math.min(activeIndex, materials.length - 1);
