@@ -21,7 +21,7 @@ function isCourseDefinition(value: unknown): value is LearningCourseDefinition {
 }
 
 function discoverCourses(): LearningCourseDefinition[] {
-  const context = require.context("./", true, /^\.\/[^/]+\/index\.ts$/);
+  const context = require.context("./", true, /^\.\/[^/]+\/index\.tsx?$/);
   return context
     .keys()
     .sort()
@@ -32,10 +32,11 @@ function discoverCourses(): LearningCourseDefinition[] {
  * Registr kurzů výukové platformy.
  *
  * Každý kurz má vlastní složku `courses/<id-kurzu>/`:
- *   - `index.ts`      – metadata kurzu (název, popis, obrázek, pokyny, kód) a seznam kapitol,
+ *   - `index.ts(x)`   – metadata kurzu (název, popis, obrázek, kód) a seznam kapitol;
+ *                       `.tsx` je potřeba, pokud kurz používá `longDescription` (JSX),
  *   - `chapters/*.tsx` – jedna kapitola na soubor (materiály a kvíz).
  *
- * Kurzy se načítají automaticky: stačí vytvořit složku `courses/<id-kurzu>/index.ts`,
+ * Kurzy se načítají automaticky: stačí vytvořit složku `courses/<id-kurzu>/index.ts(x)`,
  * která exportuje objekt `LearningCourseDefinition`. Žádná ruční registrace není potřeba.
  * Role `full_access` vidí všechny kurzy z tohoto pole (viz `useVisibleCourses`).
  */

@@ -59,11 +59,10 @@ export interface LearningCourseDefinition {
   title: string;
   description: string;
   /**
-   * Další dlouhý popis kurzu jako HTML (odstavce, seznamy, odkazy, nadpisy…).
-   * Zobrazí se na detailu kurzu pod krátkým popisem. Obsah spravuje autor kurzu v kódu,
-   * nikdy do něj nevkládejte data od uživatelů.
+   * Další dlouhý popis kurzu jako React obsah (odstavce, seznamy, odkazy, nadpisy…).
+   * Zobrazí se na detailu kurzu pod krátkým popisem. Soubor kurzu musí mít příponu `.tsx`.
    */
-  longDescriptionHtml?: string;
+  longDescription?: ReactNode;
   /** Náhledový obrázek zobrazený v seznamu kurzů a na úvodu detailu kurzu */
   image?: CourseImage;
   /** Kód pro přihlášení ke kurzu (heslo) */

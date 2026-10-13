@@ -1,10 +1,10 @@
-import React from "react";
 import type { ChapterDefinition } from "@site/src/data/learning/types";
+import React from "react";
 
 export const modul1: ChapterDefinition = {
   id: "modul-1",
-  title: "Úvod do platformy",
-  summary: "Jak funguje studium kapitol, materiály a kvízy.",
+  title: "Informace o kurzu",
+  summary: "Tady najdete informace o kurzu, co se v něm naučíte a v další kapitole pak samotný záznam webináře.",
   materials: [
     {
       id: "modul-1-text",
@@ -13,16 +13,36 @@ export const modul1: ChapterDefinition = {
       content: (
         <>
           <p>
-            Každý kurz se skládá z kapitol. V rámci kapitoly si můžete prohlídnout všechny výukové materiály v
-            libovolném pořadí – texty i videa.
+            Adopce umělé inteligence ve firmách je tak rapidní, že výrazně předbíhá vyspělost technologií, které by měly
+            zajišťovat její bezpečnost.
           </p>
           <p>
-            U kapitol s kvízem potřebujete alespoň <strong>80&nbsp;%</strong> správných odpovědí. Kapitoly pouze s
-            materiály si označíte jako splněné tlačítkem na konci kapitoly.
+            Pokud ve firmě implementujete AI agenty a LLM modely s napojením na interní systémy, měli byste zpozornět.
+            Útočníkům totiž dnes k exfiltraci dat z vaší firmy stačí neviditelný text v CSS souboru nebo chytře upravený
+            diagram.
           </p>
+          <p>Co se na webináři naučíte</p>
+
           <p>
-            Přístup ke kurzu získáte zadáním kódu v levém panelu (pole „Kód kurzu“) nebo přes roli s plným
-            přístupem.
+            ✓ Jaké techniky útoků na AI dnes skutečně fungují.
+            <br />✓ Jak prakticky testovat prompt injection a jailbreaky.
+            <br />✓ Jak odhalovat slabiny AI agentů a AI workflow na reálném příkladu.
+            <br />✓ Jak přemýšlet o AI security tak, aby odpovídala realitě, ne marketingu.
+          </p>
+
+          <p>Uvidíte například</p>
+
+          <p>
+            Uvidíte například: Jak ochotně modely poskytnou recept na smrtící bojový plyn, jak v přímém přenosu
+            přehodnotí svůj morální kompas, nebo jak Gemini odhalí své konkrétní slabiny, a tím pomůže útočníkovi.
+          </p>
+
+          <p>O přednášejícím</p>
+
+          <p>
+            Radek Hendrych se profesně věnuje naplno bezpečnosti AI systémů. Působí jako Staff Security Manager ve firmě
+            Productboard, kde AI security řeší ze všech úhlů: jak defenzivní a ofenzivní stránku, tak governance i
+            řízení rizik. Zároveň patří mezi přední české výzkumníky v oblasti AI bezpečnosti.
           </p>
         </>
       ),
