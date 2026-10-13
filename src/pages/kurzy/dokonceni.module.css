@@ -106,7 +106,7 @@
 
 /*
  * Tisk / PDF: popis kurzu, gratulace, průměrný výsledek a počet splněných kapitol,
- * potom certifikát a až nakonec celkové vyhodnocení a skóre podle kapitol.
+ * a nakonec certifikát. Celkové vyhodnocení a skóre podle kapitol se netisknou.
  */
 @media print {
   .printLayout {
@@ -134,10 +134,14 @@
   }
 
   .header,
-  .statCard,
-  .evaluation,
-  .chapterScores {
+  .statCard {
     box-shadow: none;
     break-inside: avoid;
+  }
+
+  /* Celkové vyhodnocení a skóre podle kapitol se do PDF netisknou. */
+  .evaluation,
+  .chapterScores {
+    display: none;
   }
 }
