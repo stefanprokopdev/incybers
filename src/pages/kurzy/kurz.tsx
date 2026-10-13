@@ -3,6 +3,7 @@ import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 import CourseCompletionBadge from "@site/src/components/CourseCompletionBadge";
 import CourseInfoBadges from "@site/src/components/CourseInfoBadges";
+import CourseLongDescription from "@site/src/components/CourseLongDescription";
 import CourseThumbnail from "@site/src/components/CourseThumbnail";
 import LearningShell from "@site/src/components/LearningShell";
 import RequireAuth from "@site/src/components/RequireAuth";
@@ -70,7 +71,7 @@ export default function CourseDetailPage(): JSX.Element {
                   <h1 className={styles.title}>{course.title}</h1>
                   <CourseInfoBadges course={course} className={styles.infoBadges} />
                   <p className={styles.description}>{course.description}</p>
-                  {course.longDescription && <div className={styles.longDescription}>{course.longDescription}</div>}
+                  {course.longDescription && <CourseLongDescription>{course.longDescription}</CourseLongDescription>}
                   <section aria-labelledby="course-instructions-title" className={styles.instructions}>
                     <h2 id="course-instructions-title" className={styles.instructionsTitle}>
                       Pokyny ke studiu

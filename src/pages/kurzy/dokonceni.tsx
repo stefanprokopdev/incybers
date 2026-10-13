@@ -4,6 +4,7 @@ import { useLocation } from "@docusaurus/router";
 import CertificateNameForm from "@site/src/components/CertificateNameForm";
 import CourseCertificate from "@site/src/components/CourseCertificate";
 import CourseCompletionBadge from "@site/src/components/CourseCompletionBadge";
+import CoursePrintDescription from "@site/src/components/CoursePrintDescription";
 import LearningShell from "@site/src/components/LearningShell";
 import RequireAuth from "@site/src/components/RequireAuth";
 import { getCourseById } from "@site/src/data/learning/courses";
@@ -12,11 +13,7 @@ import { useCanAccessCourse } from "@site/src/hooks/useCanAccessCourse";
 import { useCourseProgress } from "@site/src/hooks/useCourseProgress";
 import { useLearningProfile } from "@site/src/hooks/useLearningProfile";
 import { chapterHasQuiz, isChapterComplete } from "@site/src/utils/chapterProgress";
-import {
-  getCertificateRecipientName,
-  getCourseEvaluation,
-  isCourseCompleted,
-} from "@site/src/utils/learningLogic";
+import { getCertificateRecipientName, getCourseEvaluation, isCourseCompleted } from "@site/src/utils/learningLogic";
 import { courseDetailPath, LEARNING_DASHBOARD_PATH, parseCourseIdFromSearch } from "@site/src/utils/learningRoutes";
 import Layout from "@theme/Layout";
 import React, { JSX, useMemo, useState } from "react";
@@ -72,13 +69,15 @@ export default function CourseCompletionPage(): JSX.Element {
               <Link to={courseDetailPath(course.id)}>Zpět na kurz</Link>
             </div>
           ) : (
-            <>
+            <div className={styles.printLayout}>
+              <CoursePrintDescription course={course} className={styles.printDescription} />
+
               <header className={styles.header}>
                 <CourseCompletionBadge large />
                 <h1 className={styles.title}>Gratulujeme k dokončení kurzu</h1>
                 <p className={styles.lead}>
-                  Úspěšně jste splnili všechny povinné kvízy v kurzu <strong>{course.title}</strong>. Níže najdete
-                  souhrnné vyhodnocení a certifikát.
+                  Úspěšně jste splnili všechny povinné kvízy v kurzu <strong>{course.title}</strong>. Souhrnné
+                  vyhodnocení i certifikát najdete na této stránce.
                 </p>
               </header>
 
@@ -126,20 +125,22 @@ export default function CourseCompletionPage(): JSX.Element {
 
               {user &&
                 (recipientName ? (
-                  <CourseCertificate
-                    courseTitle={course.title}
-                    recipientName={recipientName}
-                    userId={user.uid}
-                    courseId={course.id}
-                    completedAtMs={progress.completedAtMs}
-                    evaluation={evaluation}
-                    estimatedTime={course.estimatedTime}
-                    cpeCredits={course.cpeCredits}
-                  />
+                  <div className={styles.printCertificate}>
+                    <CourseCertificate
+                      courseTitle={course.title}
+                      recipientName={recipientName}
+                      userId={user.uid}
+                      courseId={course.id}
+                      completedAtMs={progress.completedAtMs}
+                      evaluation={evaluation}
+                      estimatedTime={course.estimatedTime}
+                      cpeCredits={course.cpeCredits}
+                    />
+                  </div>
                 ) : (
                   <CertificateNameForm user={user} onSaved={setSavedName} />
                 ))}
-            </>
+            </div>
           )}
         </LearningShell>
       </RequireAuth>

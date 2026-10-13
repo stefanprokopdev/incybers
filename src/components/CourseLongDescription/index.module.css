@@ -1,0 +1,30 @@
+.longDescription {
+  margin-top: 1.25rem;
+  max-width: 48rem;
+  line-height: 1.65;
+}
+
+.longDescription > :first-child {
+  margin-top: 0;
+}
+
+.longDescription > :last-child {
+  margin-bottom: 0;
+}
+
+.longDescription h2,
+.longDescription h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.longDescription p,
+.longDescription ul,
+.longDescription ol {
+  margin: 0 0 0.85rem;
+}
+
+.longDescription img {
+  max-width: 100%;
+  height: auto;
+}

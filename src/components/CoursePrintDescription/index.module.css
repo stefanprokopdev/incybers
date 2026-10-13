@@ -1,0 +1,72 @@
+/* Na obrazovce se popis nezobrazuje, je určený jen pro tisk / PDF. */
+.section {
+  display: none;
+}
+
+@media print {
+  .section {
+    display: block;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
+    color: var(--brand-black);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.25rem;
+    font-size: 0.7rem;
+    font-weight: var(--ifm-font-weight-bold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ifm-color-emphasis-600);
+  }
+
+  .title {
+    margin: 0 0 0.6rem;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .badges {
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    margin: 0 0 0.75rem;
+    line-height: 1.55;
+  }
+
+  .section .longDescription {
+    margin-top: 0;
+    max-width: none;
+    font-size: 0.95rem;
+  }
+
+  .heading {
+    margin: 1.1rem 0 0.4rem;
+    font-size: 1.05rem;
+    break-after: avoid;
+  }
+
+  .chapters {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .chapter {
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+  }
+
+  .chapterType {
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.9rem;
+  }
+
+  .chapterSummary {
+    margin: 0.15rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ifm-color-emphasis-800);
+  }
+}

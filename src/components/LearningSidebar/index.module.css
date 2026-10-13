@@ -428,3 +428,13 @@
     box-shadow: var(--ifm-global-shadow-tl);
   }
 }
+
+/* Tisk / PDF: boční panel a jeho ovládací prvky se netisknou. */
+@media print {
+  .sidebar,
+  .mobileToggle,
+  .desktopOpen,
+  .backdrop {
+    display: none !important;
+  }
+}

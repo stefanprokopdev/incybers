@@ -103,3 +103,36 @@
 .scoreItem:last-child {
   border-bottom: none;
 }
+
+/*
+ * Tisk / PDF: nejdřív kompletní popis kurzu, pod ním certifikát,
+ * a až potom gratulace, souhrn a skóre podle kapitol.
+ */
+@media print {
+  .printLayout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .printDescription {
+    order: -2;
+  }
+
+  .printCertificate {
+    order: -1;
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+  }
+
+  .header,
+  .statCard,
+  .evaluation,
+  .chapterScores {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .summaryGrid {
+    break-inside: avoid;
+  }
+}

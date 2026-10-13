@@ -52,3 +52,26 @@
     padding-top: 4.25rem;
   }
 }
+
+/* Tisk / PDF: bez pozadí, bez odkazu zpět a s plnou šířkou obsahu. */
+@media print {
+  .shell {
+    display: block;
+    min-height: 0;
+    background: #fff;
+  }
+
+  .content,
+  .contentCollapsed {
+    padding: 0 !important;
+  }
+
+  .inner,
+  .innerWide {
+    max-width: none;
+  }
+
+  .backLink {
+    display: none;
+  }
+}
