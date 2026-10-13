@@ -131,12 +131,25 @@ export function formatCertificateDate(completedAtMs: number | undefined): string
   });
 }
 
-export function displayNameFromEmail(email: string | null | undefined): string {
-  if (!email) {
-    return "Účastník kurzu";
-  }
-  const local = email.split("@")[0] ?? email;
-  return local.replace(/[._-]+/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+/** Zredukuje opakované mezery a odstraní okrajové mezery. */
+export function normalizeFullName(name: string | null | undefined): string {
+  return (name ?? "").trim().replace(/\s+/g, " ");
+}
+
+/** Celé jméno musí obsahovat alespoň křestní jméno a příjmení (dvě slova). */
+export function isFullName(name: string | null | undefined): boolean {
+  return normalizeFullName(name).split(" ").filter(Boolean).length >= 2;
+}
+
+/** Vrátí jméno pro certifikát, nebo `null`, pokud účet nemá uložené jméno i s příjmením. */
+export function getCertificateRecipientName(displayName: string | null | undefined): string | null {
+  const normalized = normalizeFullName(displayName);
+  return isFullName(normalized) ? normalized : null;
+}
+
+/** Počet CPE kreditů v českém formátu (např. `2,5`). */
+export function formatCpeCredits(credits: number): string {
+  return credits.toLocaleString("cs-CZ");
 }
 
 export function buildCertificateReference(userId: string, courseId: string, completedAtMs: number | undefined): string {

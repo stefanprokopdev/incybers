@@ -1,6 +1,7 @@
 import Head from "@docusaurus/Head";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
+import CertificateNameForm from "@site/src/components/CertificateNameForm";
 import CourseCertificate from "@site/src/components/CourseCertificate";
 import CourseCompletionBadge from "@site/src/components/CourseCompletionBadge";
 import LearningShell from "@site/src/components/LearningShell";
@@ -11,10 +12,14 @@ import { useCanAccessCourse } from "@site/src/hooks/useCanAccessCourse";
 import { useCourseProgress } from "@site/src/hooks/useCourseProgress";
 import { useLearningProfile } from "@site/src/hooks/useLearningProfile";
 import { chapterHasQuiz, isChapterComplete } from "@site/src/utils/chapterProgress";
-import { displayNameFromEmail, getCourseEvaluation, isCourseCompleted } from "@site/src/utils/learningLogic";
+import {
+  getCertificateRecipientName,
+  getCourseEvaluation,
+  isCourseCompleted,
+} from "@site/src/utils/learningLogic";
 import { courseDetailPath, LEARNING_DASHBOARD_PATH, parseCourseIdFromSearch } from "@site/src/utils/learningRoutes";
 import Layout from "@theme/Layout";
-import React, { JSX, useMemo } from "react";
+import React, { JSX, useMemo, useState } from "react";
 import styles from "./dokonceni.module.css";
 
 export default function CourseCompletionPage(): JSX.Element {
@@ -31,6 +36,9 @@ export default function CourseCompletionPage(): JSX.Element {
     () => (course ? getProgress(course.id) : { courseId: courseId ?? "", chapters: {} }),
     [course, courseId, getProgress],
   );
+
+  const [savedName, setSavedName] = useState<string | null>(null);
+  const recipientName = getCertificateRecipientName(savedName ?? user?.displayName);
 
   const completed = course ? isCourseCompleted(course, progress) : false;
   const evaluation = course ? getCourseEvaluation(course, progress) : null;
@@ -116,16 +124,21 @@ export default function CourseCompletionPage(): JSX.Element {
                 </ul>
               </section>
 
-              {user && (
-                <CourseCertificate
-                  courseTitle={course.title}
-                  recipientName={displayNameFromEmail(user.email)}
-                  userId={user.uid}
-                  courseId={course.id}
-                  completedAtMs={progress.completedAtMs}
-                  evaluation={evaluation}
-                />
-              )}
+              {user &&
+                (recipientName ? (
+                  <CourseCertificate
+                    courseTitle={course.title}
+                    recipientName={recipientName}
+                    userId={user.uid}
+                    courseId={course.id}
+                    completedAtMs={progress.completedAtMs}
+                    evaluation={evaluation}
+                    estimatedTime={course.estimatedTime}
+                    cpeCredits={course.cpeCredits}
+                  />
+                ) : (
+                  <CertificateNameForm user={user} onSaved={setSavedName} />
+                ))}
             </>
           )}
         </LearningShell>

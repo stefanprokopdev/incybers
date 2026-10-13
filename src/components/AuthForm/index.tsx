@@ -7,6 +7,7 @@ import Button from "@site/src/components/Button";
 import type { CustomSiteFields } from "@site/src/types/docusaurus-config";
 import { getBusinessEmailError } from "@site/src/utils/businessEmail";
 import { faSolid } from "@site/src/utils/faIcon";
+import { isFullName, normalizeFullName } from "@site/src/utils/learningLogic";
 import { getFirebaseAuth, mapFirebaseAuthError, type FirebaseWebConfig } from "@site/src/utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -17,6 +18,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
   type ActionCodeSettings,
   type User,
 } from "firebase/auth";
@@ -51,6 +53,7 @@ export default function AuthForm({ redirectTo = PLATFORM_DASHBOARD_PATH }: AuthF
   const [mode, setMode] = useState<AuthMode>("login");
   const [user, setUser] = useState<User | null>(null);
   const [authReady, setAuthReady] = useState(false);
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -220,6 +223,12 @@ export default function AuthForm({ redirectTo = PLATFORM_DASHBOARD_PATH }: AuthF
       return;
     }
 
+    const normalizedFullName = normalizeFullName(fullName);
+    if (mode === "register" && !isFullName(normalizedFullName)) {
+      setError("Zadejte celé jméno včetně příjmení.");
+      return;
+    }
+
     if (mode === "register" && password.length < 12) {
       setError("Heslo musí mít alespoň 12 znaků.");
       return;
@@ -249,7 +258,13 @@ export default function AuthForm({ redirectTo = PLATFORM_DASHBOARD_PATH }: AuthF
         }
       } else {
         const credential = await createUserWithEmailAndPassword(auth, trimmedEmail, password);
+        try {
+          await updateProfile(credential.user, { displayName: normalizedFullName });
+        } catch {
+          // Jméno si uživatel může doplnit později při vystavení certifikátu.
+        }
         await sendVerificationAndSignOut(credential.user);
+        setFullName("");
         setPassword("");
         setShowPassword(false);
         setAcceptedTerms(false);
@@ -330,6 +345,25 @@ export default function AuthForm({ redirectTo = PLATFORM_DASHBOARD_PATH }: AuthF
       )}
 
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        {mode === "register" && (
+          <div className={styles.field}>
+            <label className={styles.label} htmlFor="auth-full-name">
+              Jméno a příjmení
+            </label>
+            <input
+              id="auth-full-name"
+              className={styles.input}
+              type="text"
+              autoComplete="name"
+              placeholder="Jan Novák"
+              value={fullName}
+              onChange={(event) => setFullName(event.target.value)}
+              disabled={submitting || !isConfigured}
+              required
+            />
+          </div>
+        )}
+
         <div className={styles.field}>
           <label className={styles.label} htmlFor="auth-email">
             Pracovní e-mail

@@ -1,6 +1,6 @@
 import Button from "@site/src/components/Button";
 import type { CourseEvaluationSummary } from "@site/src/data/learning/types";
-import { buildCertificateReference, formatCertificateDate } from "@site/src/utils/learningLogic";
+import { buildCertificateReference, formatCertificateDate, formatCpeCredits } from "@site/src/utils/learningLogic";
 import React, { JSX, useCallback, useRef } from "react";
 import styles from "./index.module.css";
 
@@ -11,6 +11,10 @@ interface CourseCertificateProps {
   courseId: string;
   completedAtMs: number | undefined;
   evaluation: CourseEvaluationSummary;
+  /** Délka kurzu (např. „3 hodiny“) – zobrazí se, pokud je vyplněná. */
+  estimatedTime?: string;
+  /** Počet CPE kreditů – zobrazí se, pokud je vyplněný. */
+  cpeCredits?: number;
 }
 
 export default function CourseCertificate({
@@ -20,6 +24,8 @@ export default function CourseCertificate({
   courseId,
   completedAtMs,
   evaluation,
+  estimatedTime,
+  cpeCredits,
 }: CourseCertificateProps): JSX.Element {
   const certificateRef = useRef<HTMLDivElement>(null);
   const reference = buildCertificateReference(userId, courseId, completedAtMs);
@@ -54,6 +60,16 @@ export default function CourseCertificate({
           <span>
             Průměrné skóre kvízů: <strong>{evaluation.averageBestScorePercent}&nbsp;%</strong>
           </span>
+          {estimatedTime && (
+            <span>
+              Délka kurzu: <strong>{estimatedTime}</strong>
+            </span>
+          )}
+          {cpeCredits !== undefined && (
+            <span>
+              CPE kredity: <strong>{formatCpeCredits(cpeCredits)}</strong>
+            </span>
+          )}
           <span>
             Kapitol splněno:{" "}
             <strong>
