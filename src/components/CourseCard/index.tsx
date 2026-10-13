@@ -1,5 +1,6 @@
 import Button from "@site/src/components/Button";
 import CourseCompletionBadge from "@site/src/components/CourseCompletionBadge";
+import CourseInfoBadges from "@site/src/components/CourseInfoBadges";
 import CourseThumbnail from "@site/src/components/CourseThumbnail";
 import type {
   CourseProgressRecord,
@@ -57,7 +58,7 @@ export default function CourseCard({ course, progress }: CourseCardProps): JSX.E
           ) : (
             <span className={clsx(styles.badge, statusClass(status))}>{statusLabel(status)}</span>
           )}
-          <span className={styles.badge}>{course.chapters.length} kapitol</span>
+          <CourseInfoBadges course={course} />
         </div>
         <div className={styles.progressBar} aria-hidden>
           <div className={styles.progressFill} style={{ width: `${completionPercent}%` }} />

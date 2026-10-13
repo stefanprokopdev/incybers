@@ -119,7 +119,9 @@ export default function ChapterQuiz({
 
       <form onSubmit={(event) => void handleSubmit(event)} noValidate>
         {quiz.questions.map((question, index) => (
-          <fieldset key={question.id} className={clsx(styles.question, locked && !reviewed && styles.questionLocked)}
+          <fieldset
+            key={question.id}
+            className={clsx(styles.question, locked && !reviewed && styles.questionLocked)}
             disabled={locked}
           >
             <legend className={styles.legend}>

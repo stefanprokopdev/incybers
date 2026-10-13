@@ -1,33 +1,10 @@
 import type { ChapterDefinition } from "@site/src/data/learning/types";
-import React from "react";
 
-export const modul2: ChapterDefinition = {
-  id: "modul-2",
-  title: "Záznam webináře AI hacking: Jak hackeři lámou jazykové modely",
-  summary: "Celý záznam webináře - tato kapitola se skládá z přednášky a kvízu.",
-  materials: [
-    {
-      id: "modul-2-text",
-      kind: "text",
-      title: "Jak postupovat",
-      content: (
-        <>
-          <ol>
-            <li>Zhlédněte záznam webináře (na vedlejší kartě)</li>
-            <li>Projděte závěrečný kvíz</li>
-            <li>Po úspěšném absolvování kvízu si vygenerujte certifikát</li>
-          </ol>
-        </>
-      ),
-    },
-    {
-      id: "modul-2-video",
-      kind: "video",
-      title: "VIDEO - Záznam webináře AI hacking: Jak hackeři lámou jazykové modely",
-      embedUrl: "https://www.youtube.com/embed/n98EzuXwukE",
-      description: "Sem vložte embed vašeho školicího videa.",
-    },
-  ],
+export const zaverecnyKviz: ChapterDefinition = {
+  id: "zaverecny-kviz",
+  title: "Závěrečný kvíz",
+  summary: "Tato lekce obsahuje závěrečný kvíz.",
+  materials: [],
   quiz: {
     questions: [
       {

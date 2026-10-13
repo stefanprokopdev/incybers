@@ -21,6 +21,10 @@
   line-height: 1.25;
 }
 
+.infoBadges {
+  margin: 0 0 0.85rem;
+}
+
 .description {
   margin: 0;
   max-width: 42rem;

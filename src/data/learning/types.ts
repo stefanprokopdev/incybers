@@ -63,6 +63,10 @@ export interface LearningCourseDefinition {
    * Zobrazí se na detailu kurzu pod krátkým popisem. Soubor kurzu musí mít příponu `.tsx`.
    */
   longDescription?: ReactNode;
+  /** Čas potřebný ke splnění kurzu zobrazený v badge (např. `"3 hodiny"` nebo `"2 h 30 min"`) */
+  estimatedTime?: string;
+  /** Počet CPE kreditů zobrazený v badge (lze i desetinné číslo, např. `2.5`) */
+  cpeCredits?: number;
   /** Náhledový obrázek zobrazený v seznamu kurzů a na úvodu detailu kurzu */
   image?: CourseImage;
   /** Kód pro přihlášení ke kurzu (heslo) */
