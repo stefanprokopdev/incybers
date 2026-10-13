@@ -68,6 +68,13 @@ export default function CourseDetailPage(): JSX.Element {
                 <div className={styles.headerBody}>
                   <h1 className={styles.title}>{course.title}</h1>
                   <p className={styles.description}>{course.description}</p>
+                  {course.longDescriptionHtml && (
+                    <div
+                      className={styles.longDescription}
+                      // Obsah pochází ze statických definic kurzů v repozitáři, ne od uživatelů.
+                      dangerouslySetInnerHTML={{ __html: course.longDescriptionHtml }}
+                    />
+                  )}
                   <section aria-labelledby="course-instructions-title" className={styles.instructions}>
                     <h2 id="course-instructions-title" className={styles.instructionsTitle}>
                       Pokyny ke studiu

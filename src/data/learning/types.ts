@@ -58,6 +58,12 @@ export interface LearningCourseDefinition {
   id: string;
   title: string;
   description: string;
+  /**
+   * Další dlouhý popis kurzu jako HTML (odstavce, seznamy, odkazy, nadpisy…).
+   * Zobrazí se na detailu kurzu pod krátkým popisem. Obsah spravuje autor kurzu v kódu,
+   * nikdy do něj nevkládejte data od uživatelů.
+   */
+  longDescriptionHtml?: string;
   /** Náhledový obrázek zobrazený v seznamu kurzů a na úvodu detailu kurzu */
   image?: CourseImage;
   /** Kód pro přihlášení ke kurzu (heslo) */
