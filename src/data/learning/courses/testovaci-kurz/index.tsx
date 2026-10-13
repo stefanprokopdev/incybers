@@ -7,10 +7,9 @@ import { zaverecnyKviz } from "./chapters/zaverecny-kviz";
 export const testovaciKurz: LearningCourseDefinition = {
   id: "ai-hacking-jak-hackere-lamaou-jazykove-modely",
   title: "AI hacking: Jak hackeři lámou jazykové modely",
-  description:
-    "Nahlédněte do mysli útočníků a naučte se prakticky odhalovat slabiny AI aplikací pomocí hacking technik, které dnes skutečně fungují proti nejpoužívanějším modelům.",
-  estimatedTime: "3 hodiny",
-  cpeCredits: 3,
+  description: "Naučte se prakticky odhalovat slabiny AI aplikací pomocí hacking technik.",
+  estimatedTime: "90 minut",
+  cpeCredits: 1,
   longDescription: (
     <>
       <p>
@@ -33,17 +32,11 @@ export const testovaciKurz: LearningCourseDefinition = {
         <b>Uvidíte například</b>: Jak ochotně modely poskytnou recept na smrtící bojový plyn, jak v přímém přenosu
         přehodnotí svůj morální kompas, nebo jak Gemini odhalí své konkrétní slabiny, a tím pomůže útočníkovi.
       </p>
-      <h2>O lektorovi</h2>
-      <p>
-        <b>Radek Hendrych</b> se profesně věnuje naplno bezpečnosti AI systémů. Působí jako Staff Security Manager ve
-        firmě Productboard, kde AI security řeší ze všech úhlů: jak defenzivní a ofenzivní stránku, tak governance i
-        řízení rizik. Zároveň patří mezi přední české výzkumníky v oblasti AI bezpečnosti.
-      </p>
     </>
   ),
   image: {
-    src: "https://outcybers.net/img/eventy/kariera-v-it-jak-se-dostat-na-manazerskou-a-c-level-pozici.png",
-    alt: "Žlutý štít s fajfkou a seznam kvízových odpovědí",
+    src: "https://outcybers.net/img/eventy/ai-hacking-jak-hackeri-lamou-jazykove-modely.png",
+    alt: "Náhled kurzu",
   },
   accessCode: "QG6IB9TJ3D",
   chapters: [videoLekce, doplnkoveMaterialy, zaverecnyKviz],
