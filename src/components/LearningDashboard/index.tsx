@@ -33,8 +33,7 @@ export default function LearningDashboard({
         <div className={styles.empty}>
           <p className={styles.emptyTitle}>Zatím nemáte žádný kurz</p>
           <p className={styles.emptyHint}>
-            Pro aktivaci kurzu použijte pole „Kód kurzu“ v levém panelu. Zadejte kód, který jste obdrželi v e-mailu.{" "}
-            <strong>KURZ2026</strong>.
+            Pro aktivaci kurzu použijte pole „Kód kurzu“ v levém panelu. Zadejte kód, který jste obdrželi v e-mailu.
           </p>
         </div>
       )}
