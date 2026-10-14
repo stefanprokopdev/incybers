@@ -25,22 +25,6 @@
   max-width: 1080px;
 }
 
-.backLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 1.25rem;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.9rem;
-  font-weight: var(--ifm-font-weight-semibold);
-  text-decoration: none;
-}
-
-.backLink:hover {
-  color: var(--ifm-font-color-base);
-  text-decoration: none;
-}
-
 @media (min-width: 997px) {
   .contentCollapsed {
     padding-left: 7.5rem;
@@ -53,7 +37,7 @@
   }
 }
 
-/* Tisk / PDF: bez pozadí, bez odkazu zpět a s plnou šířkou obsahu. */
+/* Tisk / PDF: bez pozadí a s plnou šířkou obsahu. */
 @media print {
   .shell {
     display: block;
@@ -69,9 +53,5 @@
   .inner,
   .innerWide {
     max-width: none;
-  }
-
-  .backLink {
-    display: none;
   }
 }

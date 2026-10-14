@@ -51,7 +51,7 @@ export default function CourseDetailPage(): JSX.Element {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <RequireAuth redirectTo="/">
-        <LearningShell backTo={LEARNING_DASHBOARD_PATH} backLabel="Moje kurzy" noNavbar>
+        <LearningShell breadcrumbs={[]} noNavbar>
           {!courseId || !course ? (
             <div className="alert alert--warning" role="alert">
               Kurz nebyl nalezen. <Link to={LEARNING_DASHBOARD_PATH}>Vraťte se na seznam kurzů</Link>.

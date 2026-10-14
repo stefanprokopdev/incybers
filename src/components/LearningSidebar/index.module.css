@@ -57,6 +57,17 @@
     var(--ifm-color-emphasis-200);
 }
 
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--ifm-global-radius);
+}
+
+.logoLink:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
 .logo {
   display: block;
   width: 8.5rem;

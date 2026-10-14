@@ -21,11 +21,11 @@ interface CourseCardProps {
 function statusLabel(status: CourseProgressStatus): string {
   switch (status) {
     case "completed":
-      return "Dokončeno";
+      return "Dokončený";
     case "in_progress":
-      return "Probíhá";
+      return "Rozpracovaný";
     default:
-      return "Nezačato";
+      return "Nový";
   }
 }
 
@@ -63,7 +63,7 @@ export default function CourseCard({ course, progress }: CourseCardProps): JSX.E
         <div className={styles.progressBar} aria-hidden>
           <div className={styles.progressFill} style={{ width: `${completionPercent}%` }} />
         </div>
-        <p className={styles.progressLabel}>Splněno {completionPercent}&nbsp;% kapitol (kvíz)</p>
+        <p className={styles.progressLabel}>Splněno {completionPercent}&nbsp;% kurzu</p>
       </div>
       <div className={styles.footer}>
         {isCompleted ? (

@@ -49,8 +49,9 @@ export default function CourseCompletionPage(): JSX.Element {
       </Head>
       <RequireAuth redirectTo="/">
         <LearningShell
-          backTo={course ? courseDetailPath(course.id) : LEARNING_DASHBOARD_PATH}
-          backLabel={course ? "Přehled kapitol" : "Moje kurzy"}
+          breadcrumbs={
+            course ? [{ label: course.title, to: courseDetailPath(course.id) }] : [{ label: "Dokončení kurzu" }]
+          }
           noNavbar
         >
           {!courseId || !course ? (

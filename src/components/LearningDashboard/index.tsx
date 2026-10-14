@@ -23,7 +23,7 @@ export default function LearningDashboard({
         <p className={styles.subtitle}>
           {hasFullAccess
             ? "Máte přístup ke všem kurzům na platformě. Vyberte kurz a pokračujte v kapitolách, materiálech a kvízech."
-            : "Zde jsou kurzy, ke kterým jste přihlášeni. Nový kurz přidáte zadáním kódu v levém panelu."}
+            : "Zde jsou kurzy, které máte aktivované. Nový kurz aktivujete zadáním kódu v levém panelu."}
         </p>
       </header>
 
@@ -33,8 +33,8 @@ export default function LearningDashboard({
         <div className={styles.empty}>
           <p className={styles.emptyTitle}>Zatím nemáte žádný kurz</p>
           <p className={styles.emptyHint}>
-            Po přihlášení použijte pole „Kód kurzu“ v levém panelu. Pro testovací kurz zadejte kód{" "}
-            <strong>TEST2026</strong>.
+            Pro aktivaci kurzu použijte pole „Kód kurzu“ v levém panelu. Zadejte kód, který jste obdrželi v e-mailu.{" "}
+            <strong>KURZ2026</strong>.
           </p>
         </div>
       )}

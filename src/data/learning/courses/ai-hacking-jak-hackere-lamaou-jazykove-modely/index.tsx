@@ -8,8 +8,8 @@ export const testovaciKurz: LearningCourseDefinition = {
   id: "ai-hacking-jak-hackere-lamaou-jazykove-modely",
   title: "AI hacking: Jak hackeři lámou jazykové modely",
   description: "Naučte se prakticky odhalovat slabiny AI aplikací pomocí hacking technik.",
-  estimatedTime: "90 minut",
-  cpeCredits: 1,
+  estimatedTime: "2 hodiny",
+  cpeCredits: 2,
   longDescription: (
     <>
       <p>

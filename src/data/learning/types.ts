@@ -15,6 +15,7 @@ export interface QuizQuestionDefinition {
   id: string;
   prompt: string;
   answers: QuizAnswerDefinition[];
+  description?: string;
 }
 
 export interface QuizDefinition {

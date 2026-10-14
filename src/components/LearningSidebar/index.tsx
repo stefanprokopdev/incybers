@@ -163,7 +163,7 @@ export default function LearningSidebar({
     }
 
     if (profile?.enrolledCourseIds.includes(course.id)) {
-      setMessage(`Kurz „${course.title}“ už máte přiřazený.`);
+      setMessage(`Kurz „${course.title}“ už máte aktivovaný.`);
       setCode("");
       return;
     }
@@ -171,7 +171,7 @@ export default function LearningSidebar({
     setSubmitting(true);
     try {
       await enrollInCourse(course.id);
-      setMessage(`Kurz „${course.title}“ byl přidán.`);
+      setMessage(`Kurz „${course.title}“ byl úspěšně aktivován.`);
       setCode("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Nepodařilo se přidat kurz. Zkuste to znovu.");
@@ -220,7 +220,17 @@ export default function LearningSidebar({
         inert={concealed}
       >
         <div className={styles.header}>
-          {!rail && <img src="/img/logo.svg" alt="Outcybers" className={styles.logo} width={148} height={32} />}
+          {!rail && (
+            <Link
+              className={styles.logoLink}
+              to={LEARNING_DASHBOARD_PATH}
+              aria-label="Outcybers – úvodní stránka kurzů"
+              title="Úvodní stránka kurzů"
+              onClick={closeMobile}
+            >
+              <img src="/img/logo.svg" alt="Outcybers" className={styles.logo} width={148} height={32} />
+            </Link>
+          )}
           <button
             type="button"
             className={styles.collapseButton}
@@ -278,7 +288,7 @@ export default function LearningSidebar({
           {!rail && !profileLoading && !hasFullAccess && (
             <section className={styles.enroll} aria-label="Přidat kurz kódem">
               <h2 className={styles.enrollTitle}>Kód kurzu</h2>
-              <p className={styles.enrollHint}>Zadejte kód a kurz se vám přiřadí.</p>
+              <p className={styles.enrollHint}>Aktivujte kurz zadáním kódu.</p>
               <form className={styles.enrollForm} onSubmit={(event) => void handleEnroll(event)}>
                 <label className={styles.visuallyHidden} htmlFor={codeInputId}>
                   Kód kurzu

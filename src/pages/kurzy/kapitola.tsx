@@ -72,8 +72,7 @@ export default function ChapterPage(): JSX.Element {
       </Head>
       <RequireAuth redirectTo="/">
         <LearningShell
-          backTo={course ? courseDetailPath(course.id) : LEARNING_DASHBOARD_PATH}
-          backLabel={course ? "Přehled kapitol" : "Moje kurzy"}
+          breadcrumbs={course ? [{ label: course.title, to: courseDetailPath(course.id) }] : [{ label: "Kapitola" }]}
           noNavbar
         >
           {!course || !chapter || chapterIndex < 0 ? (

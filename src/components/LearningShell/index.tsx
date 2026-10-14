@@ -1,16 +1,14 @@
-import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LearningBreadcrumbs, { LearningBreadcrumbItem } from "@site/src/components/LearningBreadcrumbs";
 import LearningSidebar from "@site/src/components/LearningSidebar";
-import { faSolid } from "@site/src/utils/faIcon";
 import clsx from "clsx";
 import React, { JSX, useCallback, useEffect, useState } from "react";
 import styles from "./index.module.css";
 
 interface LearningShellProps {
   children: React.ReactNode;
-  backTo?: string;
-  backLabel?: string;
+  /** Položky breadcrumbs za kořenem „Moje kurzy“. Bez vlastních položek se zobrazí jen kořen. */
+  breadcrumbs?: LearningBreadcrumbItem[];
   wide?: boolean;
   /** Nastavte, pokud je stránka vykreslena bez hlavní lišty (Layout `noHeader`). */
   noNavbar?: boolean;
@@ -18,8 +16,7 @@ interface LearningShellProps {
 
 export default function LearningShell({
   children,
-  backTo,
-  backLabel,
+  breadcrumbs,
   wide = false,
   noNavbar = false,
 }: LearningShellProps): JSX.Element {
@@ -43,12 +40,7 @@ export default function LearningShell({
       />
       <main className={clsx(styles.content, desktopCollapsed && styles.contentCollapsed)}>
         <div className={clsx(styles.inner, wide && styles.innerWide)}>
-          {backTo && backLabel && (
-            <Link className={styles.backLink} to={backTo}>
-              <FontAwesomeIcon icon={faSolid("arrow-left")} aria-hidden />
-              {backLabel}
-            </Link>
-          )}
+          {breadcrumbs && <LearningBreadcrumbs items={breadcrumbs} />}
           {children}
         </div>
       </main>
