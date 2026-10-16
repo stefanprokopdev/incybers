@@ -32,8 +32,8 @@ export const testovaciKurz: LearningCourseDefinition = {
     </>
   ),
   image: {
-    src: "https://outcybers.net/img/eventy/ai-hacking-jak-hackeri-lamou-jazykove-modely.png",
-    alt: "Náhled kurzu",
+    src: "img/kurzy/automaticke-testovani-bezpecnosti.png",
+    alt: "Náhled kurzu Jak vybrat nástroje pro automatické testování bezpečnosti",
   },
   accessCode: "2K8RWNL5ML",
   chapters: [videoLekce, zaverecnyKviz],

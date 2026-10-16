@@ -1,7 +1,8 @@
 import type { LearningCourseDefinition } from "@site/src/data/learning/types";
 import React from "react";
 import { videoLekce1 } from "./chapters/video-lekce-1";
-import { zaverecnyKviz } from "./chapters/zaverecny-kviz";
+import { videoLekce2 } from "./chapters/video-lekce-2";
+import { videoLekce3 } from "./chapters/video-lekce-3";
 
 export const testovaciKurz: LearningCourseDefinition = {
   id: "zaklady-aplikacni-bezpecnosti",
@@ -29,9 +30,9 @@ export const testovaciKurz: LearningCourseDefinition = {
     </>
   ),
   image: {
-    src: "https://outcybers.net/img/eventy/ai-hacking-jak-hackeri-lamou-jazykove-modely.png",
-    alt: "Náhled kurzu",
+    src: "img/kurzy/zaklady-aplikacni-bezpecnosti.png",
+    alt: "Náhled kurzu Základy aplikační bezpečnosti",
   },
   accessCode: "K4UMZA1GWV",
-  chapters: [videoLekce1, zaverecnyKviz],
+  chapters: [videoLekce1, videoLekce2, videoLekce3],
 };

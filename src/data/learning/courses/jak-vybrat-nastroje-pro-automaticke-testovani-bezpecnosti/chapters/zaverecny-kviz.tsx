@@ -9,14 +9,13 @@ export const zaverecnyKviz: ChapterDefinition = {
     questions: [
       {
         id: "q1",
-        prompt:
-          "Co je podle webináře nejčastější prvotní motivací firem k pořízení automatizovaných bezpečnostních nástrojů?",
+        prompt: "Co je nejčastější motivací firem k pořízení automatizovaných bezpečnostních nástrojů?",
         description:
           "Hlavními impulsy bývají auditní požadavky na compliance (např. DORA) a zároveň reálný požadavek na škálování a zrychlení testování v prostředí, kde je nedostatek kapacit pentestrů.",
         answers: [
           {
             id: "a",
-            text: "Snaha automaticky zvýšit platy vývojářům v týmu.",
+            text: "Snaha automaticky snížit platy vývojářům, testerům a bezpečákům v týmu.",
             isCorrect: false,
           },
           {
@@ -26,20 +25,19 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "c",
-            text: "Zákonná povinnost mít nástroj nainstalovaný na každém služebním notebooku.",
+            text: "Zákonná povinnost mít nástroj nainstalovaný pro každý kritický produkt/aplikaci.",
             isCorrect: false,
           },
           {
             id: "d",
-            text: "Přechod vývojového týmu na nový operační systém.",
+            text: "Modernizace aplikace a předcházení technickému dluhu.",
             isCorrect: false,
           },
         ],
       },
       {
         id: "q2",
-        prompt:
-          "DAST (Dynamic Application Security Testing) provádí bezpečnostní testy zevnitř aplikace a má plný přístup k jejímu zdrojovému kódu.",
+        prompt: "DAST provádí bezpečnostní testy zevnitř aplikace a má plný přístup ke zdrojovému kódu.",
         description:
           "DAST nástroj funguje jako vnější útočník (pentestr) – testuje běžící aplikaci skrz její rozhraní, ale nezná kód ani vnitřní strukturu na pozadí.",
         answers: [
@@ -49,19 +47,19 @@ export const zaverecnyKviz: ChapterDefinition = {
       },
       {
         id: "q3",
-        prompt: "V čem spočívá hlavní výhoda SAST (Static Application Security Testing) nástrojů oproti DAST?",
+        prompt: "V čem spočívá hlavní výhoda SAST nástrojů oproti DAST?",
         description:
           "SAST analyzuje přímo zdrojový kód ještě před nasazením a dokáže vývojáře navést přímo na konkrétní řádek s chybou.",
         answers: [
           { id: "a", text: "Nevyžadují žádné znalosti programovacího jazyka ze strany vývojářů.", isCorrect: false },
           {
             id: "b",
-            text: "Testují výhradně již nasazenou produkční aplikaci.",
+            text: "Bezpečně testují již nasazenou produkční aplikaci.",
             isCorrect: false,
           },
           {
             id: "c",
-            text: "Kontrolují přímo zdrojový kód a odhalují zranitelnosti velmi brzy v SDLC s přesným označením řádku.",
+            text: "Kontrolují zdrojový kód a odhalují zranitelnosti s přesným řádkem kódu.",
             isCorrect: true,
           },
           { id: "d", text: "Fungují automaticky bez ohledu na použité technologie a jazyky.", isCorrect: false },
@@ -70,7 +68,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       {
         id: "q4",
         prompt:
-          "Nástroje z kategorie SCA (Software Composition Analysis) analyzují použité open-source knihovny a jejich závislosti, ale nekontrolují vlastní kód napsaný vývojáři.",
+          "SCA nástroje analyzují použité open-source knihovny a jejich závislosti, ale nekontrolují kód napsaný vývojáři.",
         description:
           "SCA se zaměřuje výhradně na tranzitivní závislosti a licence třetích stran (např. v repozitářích), zatímco vlastní aplikační kód nezkoumá.",
         answers: [
@@ -80,12 +78,16 @@ export const zaverecnyKviz: ChapterDefinition = {
       },
       {
         id: "q5",
-        prompt: "Proč je na internetu témaldy nemožné najít nezávislé srovnávací studie nebo benchmarky DAST nástrojů?",
+        prompt: "Proč je na internetu nemožné najít nezávislé studie nebo benchmarky DAST nástrojů?",
         description:
           "Výrobci do svých podmínek používání (EULA) zakomponovávají zákazy srovnávacích testů, takže většina veřejných článků na internetu je v podstatě přímým nebo skrytým marketingem samotných vendorů.",
         answers: [
-          { id: "a", text: "O tyto nástroje je na trhu minimální zájem.", isCorrect: false },
-          { id: "b", text: "Zkoušení více nástrojů najednou způsobuje trvalé poškození serverů.", isCorrect: false },
+          { id: "a", text: "O tyto nástroje je na trhu zatím minimální zájem, jsou nové.", isCorrect: false },
+          {
+            id: "b",
+            text: "Zkoušení více nástrojů najednou způsobuje problémy, protože se nástroje mezi sebou bijí.",
+            isCorrect: false,
+          },
           {
             id: "c",
             text: "Všechny tyto nástroje jsou vyvíjeny pod jednou státní licencí.",
@@ -93,7 +95,7 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "d",
-            text: "Vendoři mají ve svých smluvních podmínkách striktní klauzule zakazující jakýkoliv nezávislý benchmarking a srovnávání.",
+            text: "Výrobci mají ve smluvních podmínkách podmínky zakazující benchmarking a srovnávání.",
             isCorrect: true,
           },
         ],
@@ -101,24 +103,32 @@ export const zaverecnyKviz: ChapterDefinition = {
       {
         id: "q6",
         prompt:
-          "Proč přednášející nedoporučuje, aby výběr nového bezpečnostního nástroje do firmy prováděl řadový zaměstnanec (např. pentester)?",
+          "Proč se nedoporučuje, aby výběr nového nástroje do firmy prováděl řadový zaměstnanec (např. pentester)?",
         description:
           "Řadový zaměstnanec často navrhne nástroj jen podle toho, co zná z minulosti, ale chybí mu manažerský nadhled nad dlouhodobou strategií, rozpočtem a podporou.",
         answers: [
           {
             id: "a",
-            text: "Řadový zaměstnanec zná obvykle jen svou agendu a nezná celkový kontext firmy, budoucí vývoj (cloud vs. on-prem), rozpočet ani SLA potřeby.",
+            text: "Zaměstnanec většinou zná jen svou agendu a nezná celkový kontext firmy, budoucí vývoj (cloud vs. on-prem), rozpočet a SLA potřeby.",
             isCorrect: true,
           },
-          { id: "b", text: "Řadoví zaměstnanci nemají pravomoc komunikovat v anglickém jazyce.", isCorrect: false },
-          { id: "c", text: "Vendoři odmítají odpovídat na technické dotazy od vývojářů.", isCorrect: false },
-          { id: "d", text: "Nástroje schválené vývojáři nelze integrovat do CI/CD pipeline.", isCorrect: false },
+          {
+            id: "b",
+            text: "Řadoví zaměstnanci nemají pravomoc komunikovat s výrobci nebo rozhodovat o nákupu.",
+            isCorrect: false,
+          },
+          {
+            id: "c",
+            text: "Výrobci odmítají odpovídat na technické dotazy od vývojářů, chtějí se bavit pouze s manažery.",
+            isCorrect: false,
+          },
+          { id: "d", text: "Nástroje se špatně integrují do CI/CD pipeline.", isCorrect: false },
         ],
       },
       {
         id: "q7",
         prompt:
-          "Všichni vendoři bezpečnostních nástrojů účtují licence výhradně podle jednoho pevného modelu, a to podle počtu nalezených zranitelností.",
+          "Všichni výrobci nástrojů účtují licence výhradně podle jednoho pevného modelu, a to podle počtu nalezených zranitelností.",
         description:
           "Licenční modely se u různých vendorů zásadně liší – někteří účtují podle počtu vývojářů na GitHubu, jiní podle počtu URL/FQDN adres, nebo podle počtu spuštěných testovacích skenů.",
         answers: [
@@ -132,8 +142,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       },
       {
         id: "q8",
-        prompt:
-          "Na jakých projektech by se podle doporučení z webináře měl provádět Proof of Concept (POC) vybraného nástroje?",
+        prompt: "Na jakých projektech by se měl provádět Proof of Concept (PoC) vybraného nástroje?",
         description:
           "Testování na jednoduchém projektu je chyba, protože na něm funguje téměř vše. Pouze na složitém a komplexním projektu se ukáže, jak si nástroj poradí např. s JavaScriptem, autentizací či falešnými poplachy.",
         answers: [
@@ -144,7 +153,7 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "b",
-            text: "Na nejkomplexnějších a nejsložitějších projektech, aby se prověřila reálná funkčnost, podpora technologií a míra false positives.",
+            text: "Na nejkomplexnějších a nejsložitějších projektech, aby se prověřila reálná funkčnost.",
             isCorrect: true,
           },
           {
@@ -154,7 +163,7 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "d",
-            text: "Na projektech, které ještě nebyly schváleny vedením.",
+            text: "Na neprodukčních projektech, které ještě nebyly schváleny vedením.",
             isCorrect: false,
           },
         ],
@@ -162,7 +171,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       {
         id: "q9",
         prompt:
-          "Při přípravě zakázky nebo tendru je klíčové smluvně ošetřit možnost odstoupení od smlouvy v případě, že vybraný nástroj neprojde úspěšně fází POC podle definovaných metrik.",
+          "Při přípravě zakázky nebo tendru je klíčové smluvně ošetřit možnost odstoupení od smlouvy v případě, že vybraný nástroj neprojde úspěšně fází PoC podle definovaných metrik.",
         description:
           "Smluvní výjimka chrání firmu před tím, aby musela platit dlouholeté licence za nástroj, který v reálném prostředí selže nebo se ukáže jako nefunkční.",
         answers: [
@@ -180,7 +189,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       },
       {
         id: "q10",
-        prompt: "Jaká je realita po zakoupení a nasazení bezpečnostního nástroje (např. SAST či DAST) ve firmě?",
+        prompt: "Jaká je realita po zakoupení a nasazení bezpečnostního nástroje ve firmě?",
         description:
           "Pořízení nástroje je pouze první krok. Bez vyhrazených kapacit na konfiguraci, správu přístupů a reakce na hlášené chyby zůstane nástroj ležet bez využití.",
         answers: [
@@ -191,12 +200,12 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "b",
-            text: "Všechny zjištěné chyby se automaticky opraví samy během nočního sestavení.",
+            text: "Všechny nalezené chyby se automaticky opravují v pipeline.",
             isCorrect: false,
           },
           {
             id: "c",
-            text: "Nástroj vyžaduje vyhrazený čas na konfiguraci, filtraci false positivů, aktualizace a čas vývojářů na opravy nálezů.",
+            text: "Nástroj vyžaduje vyhrazený čas na konfiguraci, filtraci false positives, aktualizace a čas vývojářů na opravy nálezů.",
             isCorrect: true,
           },
           {
@@ -209,7 +218,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       {
         id: "q11",
         prompt:
-          "Startupy nabízející bezpečnostní nástroje jsou pro velké korporace vždy ideální volbou, protože mají rozsáhlou síť lokálních českých zástupců a dlouholeté zkušenosti s veřejnými zakázkami.",
+          "Startupy nabízející bezpečnostní nástroje jsou pro velké korporace vždy ideální volbou, protože mají rozsáhlou síť lokálních zástupců a dlouholeté zkušenosti s veřejnými zakázkami.",
         description:
           "Startupy naopak často nemají zkušenosti s formalitami veřejných zakázek, nemají lokální české partnery pro přeprodej licencí a zdlouhavý korporátní nákupní proces je pro ně příliš náročný.",
         answers: [
@@ -238,17 +247,17 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "b",
-            text: "Počtem monitorů vývojáře a velikostí paměti RAM na serveru.",
+            text: "Počtem řádků kódu a počtem vývojářů v týmu.",
             isCorrect: false,
           },
           {
             id: "c",
-            text: "Použitím operačního systému Linux nebo macOS na notebooku.",
+            text: "Použitím operačního systému Linux, Windows nebo macOS.",
             isCorrect: false,
           },
           {
             id: "d",
-            text: "Počtem odeslaných marketingových e-mailů vendorovi.",
+            text: "Počtem hodin strávených vývojem a počtem hodin strávených testováním.",
             isCorrect: false,
           },
         ],

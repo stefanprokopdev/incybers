@@ -9,17 +9,21 @@ export const zaverecnyKviz: ChapterDefinition = {
     questions: [
       {
         id: "q1",
-        prompt: "Jaký je hlavní fundamentální důvod, proč fungují útoky typu Prompt Injection?",
+        prompt: "Proč jsou LLM modely zranitelné vůči prompt injection?",
         answers: [
           {
             id: "a",
             text: "AI aplikace neumí spolehlivě odlišit, kde končí uživatelská data a kde začínají systémové instrukce.",
             isCorrect: true,
           },
-          { id: "b", text: "Modely nemají dostatečný výpočetní výkon pro šifrování dat.", isCorrect: false },
+          {
+            id: "b",
+            text: "Systémové instrukce mají při generování odpovědi vždy nižší prioritu než obsah dodaný uživatelem.",
+            isCorrect: false,
+          },
           {
             id: "c",
-            text: "Všechny LLM modely jsou volně přístupné jako open-source bez bezpečnostních zábran.",
+            text: "Protože bezpečnostní guardrails chrání pouze před škodlivým výstupem modelu, nikoli před změnou jeho chování na základě vstupních dat.",
             isCorrect: false,
           },
           {
@@ -32,7 +36,7 @@ export const zaverecnyKviz: ChapterDefinition = {
       {
         id: "q2",
         prompt:
-          "Rozdíl mezi přímým (Direct) a nepřímým (Indirect) Prompt Injection spočívá v tom, že nepřímý útok se vkládá přímo do chatovacího okna.",
+          "Rozdíl mezi přímou (direct) a nepřímou (indirect) prompt injection je v tom, že nepřímý útok se vkládá do chatovacího okna.",
         answers: [
           { id: "a", text: "Pravda", isCorrect: false },
           { id: "b", text: "Nepravda", isCorrect: true },
@@ -42,20 +46,20 @@ export const zaverecnyKviz: ChapterDefinition = {
         id: "q3",
         prompt: "Co je to tzv. „Alignment Drift“ při útoku na jazykové modely?",
         answers: [
-          { id: "a", text: "Okamžité zhroucení serveru v důsledku přetížení požadavky.", isCorrect: false },
+          { id: "a", text: "Okamžité zhroucení LLM v důsledku přetížení požadavky.", isCorrect: false },
           {
             id: "b",
-            text: "Postupné odchylování vnitřního „morálního kompasu“ a zábran modelu v průběhu konverzace.",
+            text: "Postupné odchylování „morálního kompasu“ a zábran modelu v průběhu konverzace.",
             isCorrect: true,
           },
-          { id: "c", text: "Způsob, jakým AI automaticky překládá text do cizích jazyků.", isCorrect: false },
-          { id: "d", text: "Fyzické poškození grafické karty během trénování modelu.", isCorrect: false },
+          { id: "c", text: "Způsob, jakým AI automaticky vyhodnocuje jazyk konverzace.", isCorrect: false },
+          { id: "d", text: "Fyzické poškození serveru během trénování modelu.", isCorrect: false },
         ],
       },
       {
         id: "q4",
         prompt:
-          "Statické filtry klíčových slov (např. detekující slovo „bomba“) reagují pomaleji než hluboká analýza úmyslu v Interním klasifikačním systému (ICS).",
+          "Statické filtry klíčových slov (např. detekující slovo „bomba“) reagují pomaleji než analýza úmyslu v interním klasifikačním systému.",
         answers: [
           { id: "a", text: "Pravda", isCorrect: false },
           { id: "b", text: "Nepravda", isCorrect: true },
@@ -69,16 +73,16 @@ export const zaverecnyKviz: ChapterDefinition = {
           { id: "b", text: "Šifrováním celého promptu pomocí AES-256.", isCorrect: false },
           {
             id: "c",
-            text: "Zabalení útočného požadavku do zdánlivě neškodného kontextu (např. výzkumného, lékařského nebo hypotetického).",
+            text: "Zabalení promptu do zdánlivě neškodného kontextu (např. výzkumného, lékařského nebo hypotetického).",
             isCorrect: true,
           },
-          { id: "d", text: "Vytvořením nového uživatelského účtu na platformě.", isCorrect: false },
+          { id: "d", text: "Vytvořením nového chatu na platformě a pokračování v útoku zde.", isCorrect: false },
         ],
       },
       {
         id: "q6",
         prompt:
-          "Do diagramu ve formátu Draw.io (XML) nelze schovat skryté instrukce, protože AI kódovací agenti čtou pouze vizuální obrázky (PNG/JPEG).",
+          "Do diagramu ve formátu draw.io nelze schovat skryté instrukce, protože AI agenti čtou pouze vizuální obrázky (PNG/JPEG).",
         answers: [
           { id: "a", text: "Pravda", isCorrect: false },
           { id: "b", text: "Nepravda", isCorrect: true },
@@ -120,7 +124,7 @@ export const zaverecnyKviz: ChapterDefinition = {
           },
           {
             id: "d",
-            text: "Bezpečnost se již neměří počtem firemních firewallů, ale přísnou kontrolou toho, k jakým datům a zdrojům má AI agent přístup.",
+            text: "Bezpečnost se již neměří počtem firemních firewallů, ale kontrolou toho, k jakým datům a zdrojům má AI agent přístup.",
             isCorrect: true,
           },
         ],
